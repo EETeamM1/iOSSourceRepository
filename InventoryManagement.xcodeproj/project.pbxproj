@@ -14,6 +14,8 @@
 		F752E0F21CF4723C00318084 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F752E0F01CF4723C00318084 /* LaunchScreen.storyboard */; };
 		F752E0FD1CF4723D00318084 /* InventoryManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752E0FC1CF4723D00318084 /* InventoryManagementTests.swift */; };
 		F752E1081CF4723D00318084 /* InventoryManagementUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752E1071CF4723D00318084 /* InventoryManagementUITests.swift */; };
+		F7BCFB771CFD9BE200CC1318 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F7BCFB761CFD9BE200CC1318 /* logo.png */; settings = {ASSET_TAGS = (); }; };
+		F7BCFB7B1CFDB08700CC1318 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BCFB7A1CFDB08700CC1318 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		F752E1031CF4723D00318084 /* InventoryManagementUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InventoryManagementUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F752E1071CF4723D00318084 /* InventoryManagementUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryManagementUITests.swift; sourceTree = "<group>"; };
 		F752E1091CF4723D00318084 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7BCFB761CFD9BE200CC1318 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resources/logo.png; sourceTree = "<group>"; };
+		F7BCFB7A1CFDB08700CC1318 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +101,14 @@
 		F752E0E61CF4723C00318084 /* InventoryManagement */ = {
 			isa = PBXGroup;
 			children = (
+				F7BCFB751CFD9BA200CC1318 /* Resources */,
 				F752E0E71CF4723C00318084 /* AppDelegate.swift */,
 				F752E0E91CF4723C00318084 /* ViewController.swift */,
 				F752E0EB1CF4723C00318084 /* Main.storyboard */,
 				F752E0EE1CF4723C00318084 /* Assets.xcassets */,
 				F752E0F01CF4723C00318084 /* LaunchScreen.storyboard */,
 				F752E0F31CF4723C00318084 /* Info.plist */,
+				F7BCFB7A1CFDB08700CC1318 /* LoginViewController.swift */,
 			);
 			path = InventoryManagement;
 			sourceTree = "<group>";
@@ -123,6 +129,14 @@
 				F752E1091CF4723D00318084 /* Info.plist */,
 			);
 			path = InventoryManagementUITests;
+			sourceTree = "<group>";
+		};
+		F7BCFB751CFD9BA200CC1318 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F7BCFB761CFD9BE200CC1318 /* logo.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +201,7 @@
 		F752E0DC1CF4723A00318084 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Impetus;
 				TargetAttributes = {
@@ -228,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7BCFB771CFD9BE200CC1318 /* logo.png in Resources */,
 				F752E0F21CF4723C00318084 /* LaunchScreen.storyboard in Resources */,
 				F752E0EF1CF4723C00318084 /* Assets.xcassets in Resources */,
 				F752E0ED1CF4723C00318084 /* Main.storyboard in Resources */,
@@ -255,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7BCFB7B1CFDB08700CC1318 /* LoginViewController.swift in Sources */,
 				F752E0EA1CF4723C00318084 /* ViewController.swift in Sources */,
 				F752E0E81CF4723C00318084 /* AppDelegate.swift in Sources */,
 			);
@@ -400,6 +417,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.transility.InventoryManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -411,6 +429,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.transility.InventoryManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -481,6 +500,7 @@
 				F752E10E1CF4723D00318084 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F752E10F1CF4723D00318084 /* Build configuration list for PBXNativeTarget "InventoryManagementTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +509,7 @@
 				F752E1111CF4723D00318084 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F752E1121CF4723D00318084 /* Build configuration list for PBXNativeTarget "InventoryManagementUITests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +518,7 @@
 				F752E1141CF4723D00318084 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
