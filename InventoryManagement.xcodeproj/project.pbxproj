@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F728FD221D017D0B00F29DA6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F752E0F31CF4723C00318084 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
+		F728FD251D01800900F29DA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F728FD231D01800900F29DA6 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		F752E0E81CF4723C00318084 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752E0E71CF4723C00318084 /* AppDelegate.swift */; };
 		F752E0EA1CF4723C00318084 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752E0E91CF4723C00318084 /* ViewController.swift */; };
-		F752E0ED1CF4723C00318084 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F752E0EB1CF4723C00318084 /* Main.storyboard */; };
 		F752E0EF1CF4723C00318084 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F752E0EE1CF4723C00318084 /* Assets.xcassets */; };
 		F752E0F21CF4723C00318084 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F752E0F01CF4723C00318084 /* LaunchScreen.storyboard */; };
 		F752E0FD1CF4723D00318084 /* InventoryManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752E0FC1CF4723D00318084 /* InventoryManagementTests.swift */; };
@@ -36,10 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F728FD241D01800900F29DA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F752E0E41CF4723B00318084 /* InventoryManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InventoryManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F752E0E71CF4723C00318084 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F752E0E91CF4723C00318084 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F752E0EC1CF4723C00318084 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F752E0EE1CF4723C00318084 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F752E0F11CF4723C00318084 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F752E0F31CF4723C00318084 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,10 +102,10 @@
 		F752E0E61CF4723C00318084 /* InventoryManagement */ = {
 			isa = PBXGroup;
 			children = (
+				F728FD231D01800900F29DA6 /* Main.storyboard */,
 				F7BCFB751CFD9BA200CC1318 /* Resources */,
 				F752E0E71CF4723C00318084 /* AppDelegate.swift */,
 				F752E0E91CF4723C00318084 /* ViewController.swift */,
-				F752E0EB1CF4723C00318084 /* Main.storyboard */,
 				F752E0EE1CF4723C00318084 /* Assets.xcassets */,
 				F752E0F01CF4723C00318084 /* LaunchScreen.storyboard */,
 				F752E0F31CF4723C00318084 /* Info.plist */,
@@ -244,9 +245,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7BCFB771CFD9BE200CC1318 /* logo.png in Resources */,
+				F728FD221D017D0B00F29DA6 /* Info.plist in Resources */,
+				F728FD251D01800900F29DA6 /* Main.storyboard in Resources */,
 				F752E0F21CF4723C00318084 /* LaunchScreen.storyboard in Resources */,
 				F752E0EF1CF4723C00318084 /* Assets.xcassets in Resources */,
-				F752E0ED1CF4723C00318084 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,10 +311,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F752E0EB1CF4723C00318084 /* Main.storyboard */ = {
+		F728FD231D01800900F29DA6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F752E0EC1CF4723C00318084 /* Base */,
+				F728FD241D01800900F29DA6 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -417,7 +419,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.transility.InventoryManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -429,7 +431,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.transility.InventoryManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

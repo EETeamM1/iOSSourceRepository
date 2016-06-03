@@ -15,10 +15,19 @@ class LoginViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setTextFieldUI(loginTextField)
+        setTextFieldUI(passwordTextField)
     }
     
     @IBAction func login (){
         
+    }
+    
+    func setTextFieldUI (textField : UITextField){
+        textField.layer.borderWidth = 1.0
+        textField.layer.borderColor = UIColor(red: 165.0/255.0, green: 0/255.0, blue: 93.0/255.0, alpha: 1).CGColor
+        textField.layer.cornerRadius = 5.0
     }
     
 }
