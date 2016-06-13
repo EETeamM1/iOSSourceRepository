@@ -21,7 +21,8 @@ class LoginViewController : UIViewController {
     }
     
     @IBAction func login (){
-        
+        let logon = Logon();
+        let str: NSString =  logon.writeLogon("user1", withPassword: "impetus", AndWithLocation: nil  )
     }
     
     func setTextFieldUI (textField : UITextField){
