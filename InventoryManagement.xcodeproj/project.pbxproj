@@ -11,6 +11,7 @@
 		F728FD251D01800900F29DA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F728FD231D01800900F29DA6 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		F73910BD1D09B3CC00FB319D /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73910BC1D09B3CC00FB319D /* NetworkController.swift */; settings = {ASSET_TAGS = (); }; };
 		F73910BF1D09B3E200FB319D /* ProtocolNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73910BE1D09B3E200FB319D /* ProtocolNetworkController.swift */; settings = {ASSET_TAGS = (); }; };
+		F73910C11D0AB1FF00FB319D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F73910C01D0AB1FF00FB319D /* CoreLocation.framework */; };
 		F752E0E81CF4723C00318084 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752E0E71CF4723C00318084 /* AppDelegate.swift */; };
 		F752E0EA1CF4723C00318084 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752E0E91CF4723C00318084 /* ViewController.swift */; };
 		F752E0EF1CF4723C00318084 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F752E0EE1CF4723C00318084 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		F728FD241D01800900F29DA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F73910BC1D09B3CC00FB319D /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		F73910BE1D09B3E200FB319D /* ProtocolNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolNetworkController.swift; sourceTree = "<group>"; };
+		F73910C01D0AB1FF00FB319D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F752E0E41CF4723B00318084 /* InventoryManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InventoryManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F752E0E71CF4723C00318084 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F752E0E91CF4723C00318084 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F73910C11D0AB1FF00FB319D /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +98,7 @@
 		F752E0DB1CF4723A00318084 = {
 			isa = PBXGroup;
 			children = (
+				F73910C01D0AB1FF00FB319D /* CoreLocation.framework */,
 				F752E0E61CF4723C00318084 /* InventoryManagement */,
 				F752E0FB1CF4723D00318084 /* InventoryManagementTests */,
 				F752E1061CF4723D00318084 /* InventoryManagementUITests */,
