@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F70107651D0AA85300C97693 /* Logon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70107641D0AA85300C97693 /* Logon.swift */; settings = {ASSET_TAGS = (); }; };
 		F728FD221D017D0B00F29DA6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F752E0F31CF4723C00318084 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
 		F728FD251D01800900F29DA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F728FD231D01800900F29DA6 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		F73910BD1D09B3CC00FB319D /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73910BC1D09B3CC00FB319D /* NetworkController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F70107641D0AA85300C97693 /* Logon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logon.swift; sourceTree = "<group>"; };
 		F728FD241D01800900F29DA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F73910BC1D09B3CC00FB319D /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		F73910BE1D09B3E200FB319D /* ProtocolNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolNetworkController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F70107631D0AA80900C97693 /* JSONParser */ = {
+			isa = PBXGroup;
+			children = (
+				F70107641D0AA85300C97693 /* Logon.swift */,
+			);
+			name = JSONParser;
+			sourceTree = "<group>";
+		};
 		F73910B91D09518400FB319D /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +129,7 @@
 		F752E0E61CF4723C00318084 /* InventoryManagement */ = {
 			isa = PBXGroup;
 			children = (
+				F70107631D0AA80900C97693 /* JSONParser */,
 				F73910B91D09518400FB319D /* Networking */,
 				F728FD231D01800900F29DA6 /* Main.storyboard */,
 				F7BCFB751CFD9BA200CC1318 /* Resources */,
@@ -292,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F73910BD1D09B3CC00FB319D /* NetworkController.swift in Sources */,
+				F70107651D0AA85300C97693 /* Logon.swift in Sources */,
 				F7BCFB7B1CFDB08700CC1318 /* LoginViewController.swift in Sources */,
 				F752E0EA1CF4723C00318084 /* ViewController.swift in Sources */,
 				F73910BF1D09B3E200FB319D /* ProtocolNetworkController.swift in Sources */,

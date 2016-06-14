@@ -65,6 +65,8 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate {
         let networkController:ProtocolNetworkController = NetworkController()
         networkController.sendPostRequest(postData, urlString: URLString, completionHandler: loginCompletionHandler)
         
+        let logon = Logon();
+        let str: NSString =  logon.writeLogon("user1", withPassword: "impetus", AndWithLocation: nil  )
     }
     
     
