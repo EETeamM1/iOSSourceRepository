@@ -29,15 +29,18 @@ class Logon{
         }
     }
     
-    func writeLogon (username :NSString?, withPassword password:NSString?, AndWithLocation location :CLLocation? ) -> NSString{
+    func writeLogon (username :NSString?, withPassword password:NSString?, AndWithLocation location :CLLocation ) -> NSString{
 
         let deviceId : NSString = "12345655474255"
         let osversion : NSString = UIDevice.currentDevice().systemVersion;
-        var string: NSString = NSString(format: "{ \"parameters\": {\"userId\" :%@, \"password\": %@, \"deviceId\": %@, \"osVersion\": %@", username!, password!, deviceId, osversion)
-        
-        if location != nil {
-            string = NSString(format: (string as String) + "\"latitude\" :%@, \"longitude\": %@,", (location?.coordinate.latitude)!, (location?.coordinate.longitude)!)
+        var string: NSString = NSString(format: "{ \"parameters\": {\"userId\" :\"%@\", \"password\": \"%@\", \"deviceId\": \"%@\", \"osVersion\": \"%@\"", username!, password!, deviceId, osversion)
+
+        if (location.coordinate.longitude != 0 && location.coordinate.latitude != 0 ){
+             string = NSString(format: (string as String) + ", \"latitude\" :\"\(location.coordinate.latitude)\", \"longitude\": \"\(location.coordinate.longitude)\"" )
         }
+        
+
+
         
         string = (string as String) + "}}"
         

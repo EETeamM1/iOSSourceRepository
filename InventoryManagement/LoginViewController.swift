@@ -14,17 +14,17 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
-     var locationManager: CLLocationManager!
-    var latitude: CLLocationDegrees = 0.0
-    var longitude:CLLocationDegrees = 0.0
+    var locationManager: CLLocationManager!
+    var location:CLLocation = CLLocation()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setTextFieldUI(loginTextField)
         setTextFieldUI(passwordTextField)
-        activityIndicator.hidden = true;
-      
-        
+//        activityIndicator.hidden = true;
+
+       
         if (CLLocationManager.locationServicesEnabled())
         {
             locationManager = CLLocationManager()
@@ -41,9 +41,8 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         
-        let location = locations.last! as CLLocation
-        latitude = location.coordinate.latitude
-        longitude = location.coordinate.longitude
+         location = locations.last! as CLLocation
+
       
     }
     
@@ -52,7 +51,10 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate {
         disableUI ()
 
         let URLString = "http://172.26.60.21:9000/InventoryManagement/api/user/login"
-        let postData = createPostDataString ()
+        let username = loginTextField.text
+        let password = passwordTextField.text
+         let logon = Logon();
+        let postData = logon.writeLogon(username, withPassword: password, AndWithLocation: location)
         let loginCompletionHandler: (NSData?, NSURLResponse?, NSError?) -> Void = { (data, response, error) in
             // this is where the completion handler code goes
             print(data)
@@ -65,9 +67,9 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate {
         let networkController:ProtocolNetworkController = NetworkController()
         networkController.sendPostRequest(postData, urlString: URLString, completionHandler: loginCompletionHandler)
         
-        let logon = Logon();
-        let str: NSString =  logon.writeLogon("user1", withPassword: "impetus", AndWithLocation: nil  )
-    }
+
+       
+       }
     
     
     func setTextFieldUI (textField : UITextField){
@@ -77,17 +79,18 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate {
     }
 
     
-    func createPostDataString () ->NSString{
-        let username = loginTextField.text
-        let password = passwordTextField.text
-        let systemName = UIDevice.currentDevice().systemName
-        let systemModel = UIDevice.currentDevice().model
-        
-        let systemVersion = UIDevice.currentDevice().systemVersion;
-        
-        let postData = "{\"parameters\": {\"userId\": \"\(username!)\",\"password\": \"\(password!)\", \"deviceId\": \"12345655474255\",\"latitude\": \"\(latitude)\", \"longitude\": \"\(longitude)\",\"osVersion\": \"\(systemVersion)\"}}"
-        return postData
-    }
+//    func createPostDataString () ->NSString{
+////        let username = loginTextField.text
+////        let password = passwordTextField.text
+////        let systemName = UIDevice.currentDevice().systemName
+////        let systemModel = UIDevice.currentDevice().model
+////        
+////        let systemVersion = UIDevice.currentDevice().systemVersion;
+////        
+//////        let postData = "{\"parameters\": {\"userId\": \"\(username!)\",\"password\": \"\(password!)\", \"deviceId\": \"12345655474255\",\"latitude\": \"\(latitude)\", \"longitude\": \"\(longitude)\",\"osVersion\": \"\(systemVersion)\"}}"
+////        return postData
+//        return nil;
+//    }
 
     
     
@@ -95,16 +98,16 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate {
         loginTextField.enabled = false
         passwordTextField.enabled = false
         loginButton.enabled = false
-        activityIndicator.hidden = false;
-        activityIndicator.startAnimating()
+//        activityIndicator.hidden = false;
+//        activityIndicator.startAnimating()
            }
     
     func enableUI (){
         loginTextField.enabled = true
         passwordTextField.enabled = true
         loginButton.enabled = true
-        self.activityIndicator.hidden = true;
-        self.activityIndicator.stopAnimating()
+//        self.activityIndicator.hidden = true;
+//        self.activityIndicator.stopAnimating()
     }
     
 }
