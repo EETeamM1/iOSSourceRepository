@@ -12,7 +12,7 @@ class NetworkController: ProtocolNetworkController {
     
     
     
-    func sendPostRequest(postData: NSString, urlString:String, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
+    func sendPostRequest(postData: NSString,  urlString:String, completion: (bool:Bool?, object:NSObject?) -> Void) {
         
         
         
@@ -31,6 +31,26 @@ class NetworkController: ProtocolNetworkController {
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         
         let session = NSURLSession.sharedSession()
+        
+        
+        let completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void = { (data, response, error) in
+            // this is where the completion handler code goes
+            if (response != nil) {
+            let httpResponse:NSHTTPURLResponse = response as! NSHTTPURLResponse
+            if (httpResponse.statusCode >= 200 && httpResponse.statusCode < 300) {
+                completion(bool:true, object:data)
+                
+            } else if (httpResponse.statusCode >= 400 && httpResponse.statusCode < 500) {
+               completion(bool:false, object:data)
+                
+            }
+            } else {
+                 completion(bool:false, object:error)
+            }
+            
+            
+            
+        }
         
         session.dataTaskWithRequest(request, completionHandler: completionHandler).resume()
         

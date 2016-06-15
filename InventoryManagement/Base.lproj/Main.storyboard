@@ -48,7 +48,6 @@
                                 </state>
                                 <connections>
                                     <action selector="login" destination="Z92-Zq-hfr" eventType="touchUpInside" id="xuC-DC-uQt"/>
-                                    <segue destination="tcO-Rf-eJz" kind="presentation" identifier="segueHomeScreen" id="Okn-jP-jF5"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2aS-4r-228">
@@ -205,9 +204,12 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="jRk-z2-Zor" id="JHY-mT-64P"/>
+                        <outlet property="errorFiled" destination="8fN-Bg-jyz" id="Krs-yQ-Zrb"/>
                         <outlet property="loginButton" destination="I5K-97-gb1" id="kEm-xp-v7n"/>
                         <outlet property="loginTextField" destination="dBM-ch-VnR" id="L49-KX-2sH"/>
                         <outlet property="passwordTextField" destination="2aS-4r-228" id="ZeV-2t-2lc"/>
+                        <segue destination="tcO-Rf-eJz" kind="show" identifier="segueHomeScreen" id="5NY-tz-vby"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MuS-1B-mtT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -278,6 +280,7 @@
                             <constraint firstItem="aLS-oW-tIL" firstAttribute="leading" secondItem="n9u-bw-AA8" secondAttribute="leading" constant="25" id="ylX-t4-zFu"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Asu-qv-fDm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOf-oZ-tNH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
