@@ -67,34 +67,30 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate {
          let logon = Logon();
         let postData = logon.writeLogon(username, withPassword: password, AndWithLocation: location)
         let loginCompletionHandler: (Bool? , NSObject?) -> Void = { (success, data) in
-            if (success == true) {
-                self.successCallBack(data as? NSData)
-            } else {
-                self.failureCallBack(data as? NSError);
-            }
-            print(data);
-            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.enableUI()
+                if (success == true) {
+                    self.successCallBack(data as? NSData)
+                } else {
+                    self.failureCallBack(data as? NSError);
+                }
+                print(data);
+            })
             
         }
-        
-    
         let networkController:ProtocolNetworkController = NetworkController()
         networkController.sendPostRequest(postData, urlString: URLString, completion: loginCompletionHandler)
         
-
-       
        }
     
     
     func successCallBack(data:NSData?) {
-        self.enableUI()
-//        self.performSegueWithIdentifier("segueHomeScreen", sender: nil)
+        self.performSegueWithIdentifier("segueHomeScreen", sender: nil)
     }
     
     func failureCallBack(error:NSError?) {
-//        self.errorFiled.text = "Unable to contact server"
-//        self.errorFiled.hidden = false
-        self.enableUI()
+        errorFiled.text = "Unable to contact server"
+        errorFiled.hidden = false
     }
     
     func setTextFieldUI (textField : UITextField){
@@ -128,7 +124,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate {
         activityIndicator.hidden = false;
         activityIndicator.startAnimating()
         errorFiled.hidden = true
-           }
+    }
     
     func enableUI (){
         loginTextField.enabled = true
