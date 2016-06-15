@@ -24,8 +24,12 @@
                                     <constraint firstAttribute="width" constant="350" id="CZA-jn-G6B"/>
                                     <constraint firstAttribute="height" constant="60" id="Mpu-mk-CqC"/>
                                     <constraint firstAttribute="height" constant="60" id="bac-Q3-LMK"/>
-                                    <constraint firstAttribute="width" constant="350" id="fPt-VA-f1i"/>
-                                    <constraint firstAttribute="width" constant="350" id="let-fU-Af9"/>
+                                    <constraint firstAttribute="width" constant="350" id="fPt-VA-f1i">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="300"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="350" id="let-fU-Af9">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="300"/>
+                                    </constraint>
                                     <constraint firstAttribute="height" constant="60" id="lto-Ja-W5M"/>
                                 </constraints>
                                 <variation key="default">
