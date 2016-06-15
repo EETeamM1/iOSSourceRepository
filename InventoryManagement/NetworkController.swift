@@ -35,21 +35,34 @@ class NetworkController: ProtocolNetworkController {
         
         let completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void = { (data, response, error) in
             // this is where the completion handler code goes
+            
             if (response != nil) {
-            let httpResponse:NSHTTPURLResponse = response as! NSHTTPURLResponse
-            if (httpResponse.statusCode >= 200 && httpResponse.statusCode < 300) {
-                completion(bool:true, object:data)
                 
-            } else if (httpResponse.statusCode >= 400 && httpResponse.statusCode < 500) {
-               completion(bool:false, object:data)
+                let httpResponse:NSHTTPURLResponse = response as! NSHTTPURLResponse
+                if (httpResponse.statusCode >= 200 && httpResponse.statusCode < 300) {
+                    completion(bool:true, object:data)
+                    
+                }else {
+                    var errorStr : NSString = "Error on server"
+                    if (httpResponse.statusCode == 401) {
+                        errorStr = "Invalid user or password"
+                    }
+                    else if ( httpResponse.statusCode == 500) {
+                        //TODO later we have to parse value
+                        errorStr = "Internal server error"
+                    }
+                    else if (httpResponse.statusCode < 200) || (httpResponse.statusCode  > 299) {
+                        errorStr = "Error occured on server"
+                    }
+                    completion(bool: false, object: errorStr)
+                }
+            }
+            else{
+                if (error?.domain == NSURLErrorDomain){
+                    completion(bool: false, object: "Unable to contact server")
+                }
                 
             }
-            } else {
-                 completion(bool:false, object:error)
-            }
-            
-            
-            
         }
         
         session.dataTaskWithRequest(request, completionHandler: completionHandler).resume()
@@ -70,8 +83,6 @@ class NetworkController: ProtocolNetworkController {
         
         session.dataTaskWithRequest(request, completionHandler: completionHandler).resume()
         
-        
     }
-    
     
 }

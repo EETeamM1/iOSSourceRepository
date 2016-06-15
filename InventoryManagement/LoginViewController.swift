@@ -64,7 +64,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate {
         }
         
         
-         let logon = Logon();
+        let logon = Logon();
         let postData = logon.writeLogon(username, withPassword: password, AndWithLocation: location)
         let loginCompletionHandler: (Bool? , NSObject?) -> Void = { (success, data) in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -72,9 +72,8 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate {
                 if (success == true) {
                     self.successCallBack(data as? NSData)
                 } else {
-                    self.failureCallBack(data as? NSError);
+                    self.failureCallBack(data as? String);
                 }
-                print(data);
             })
             
         }
@@ -88,8 +87,8 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate {
         self.performSegueWithIdentifier("segueHomeScreen", sender: nil)
     }
     
-    func failureCallBack(error:NSError?) {
-        errorFiled.text = "Unable to contact server"
+    func failureCallBack(error:String!) {
+        errorFiled.text = error
         errorFiled.hidden = false
     }
     
