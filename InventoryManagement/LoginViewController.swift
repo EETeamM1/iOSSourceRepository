@@ -9,7 +9,7 @@
 import CoreLocation
 import UIKit
 
-class LoginViewController : UIViewController, CLLocationManagerDelegate {
+class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -21,6 +21,8 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loginTextField.delegate = self
+        passwordTextField.delegate = self
         setTextFieldUI(loginTextField)
         setTextFieldUI(passwordTextField)
         self.activityIndicator.stopAnimating()
@@ -113,7 +115,10 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate {
 //        return nil;
 //    }
 
-    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
 
     
     func disableUI (){
