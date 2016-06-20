@@ -16,13 +16,22 @@ class Logon{
     var timeout : Int = 30
     var masterPassword : String = ""
     
+    var code : Int!
+    var message : String = ""
+    
     func parseLogon (data: NSData?){
         
         do{
             let jsonObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSDictionary
-            sessionToken = jsonObject["sessionToken"] as! String
-            timeout = jsonObject["timeout"] as! Int
-            masterPassword = jsonObject["masterPassword"] as! String
+            let resultObject : NSDictionary = jsonObject["result"] as! NSDictionary
+            sessionToken = resultObject["sessionToken"] as! String
+            timeout = resultObject["timeout"] as! Int
+            masterPassword = resultObject["masterPassword"] as! String
+            
+            let responseCodeObject : NSDictionary = jsonObject["responseCode"] as! NSDictionary
+            code = responseCodeObject["code"] as! Int
+            message = responseCodeObject["message"] as! String
+            
             
         }catch let error as NSError {
             print(error)
@@ -38,13 +47,13 @@ class Logon{
         if (location.coordinate.longitude != 0 && location.coordinate.latitude != 0 ){
              string = NSString(format: (string as String) + ", \"latitude\" :\"\(location.coordinate.latitude)\", \"longitude\": \"\(location.coordinate.longitude)\"" )
         }
-        
-
-
-        
         string = (string as String) + "}}"
         
         return NSString(string: string)
-        
     }
+    
+    func writeLogout () -> NSString{
+        return NSString(format: "{ \"parameters\": {\"sessionToken\" :\"%@\" }}}", self.sessionToken)
+    }
+
 }

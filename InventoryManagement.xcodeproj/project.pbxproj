@@ -21,6 +21,7 @@
 		F752E1081CF4723D00318084 /* InventoryManagementUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752E1071CF4723D00318084 /* InventoryManagementUITests.swift */; };
 		F7BCFB771CFD9BE200CC1318 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F7BCFB761CFD9BE200CC1318 /* logo.png */; settings = {ASSET_TAGS = (); }; };
 		F7BCFB7B1CFDB08700CC1318 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BCFB7A1CFDB08700CC1318 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F7C4A3421D18153F004F985E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C4A3411D18153F004F985E /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		F752E1091CF4723D00318084 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7BCFB761CFD9BE200CC1318 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resources/logo.png; sourceTree = "<group>"; };
 		F7BCFB7A1CFDB08700CC1318 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F7C4A3411D18153F004F985E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				F752E0F01CF4723C00318084 /* LaunchScreen.storyboard */,
 				F752E0F31CF4723C00318084 /* Info.plist */,
 				F7BCFB7A1CFDB08700CC1318 /* LoginViewController.swift */,
+				F7C4A3411D18153F004F985E /* HomeViewController.swift */,
 			);
 			path = InventoryManagement;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				F7BCFB7B1CFDB08700CC1318 /* LoginViewController.swift in Sources */,
 				F752E0EA1CF4723C00318084 /* ViewController.swift in Sources */,
 				F73910BF1D09B3E200FB319D /* ProtocolNetworkController.swift in Sources */,
+				F7C4A3421D18153F004F985E /* HomeViewController.swift in Sources */,
 				F752E0E81CF4723C00318084 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
