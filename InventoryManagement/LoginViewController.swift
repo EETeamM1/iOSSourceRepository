@@ -178,4 +178,14 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: yOffset), animated: true)
     }
     
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone{
+            return [.Portrait, .PortraitUpsideDown]
+        }
+        else {
+            return .All
+        }
+    }
+    
 }

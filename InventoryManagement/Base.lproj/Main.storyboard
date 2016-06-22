@@ -644,10 +644,13 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Welcome to Inventory Managment" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aLS-oW-tIL">
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Welcome to Inventory Managment" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLS-oW-tIL">
                                 <rect key="frame" x="25" y="48" width="550" height="60"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="y4c-tC-MEh"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="y4c-tC-MEh"/>
                                 </constraints>
                                 <color key="textColor" red="0.64793983499999996" green="0.0" blue="0.3642070241" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -739,6 +742,7 @@
                     </view>
                     <connections>
                         <outlet property="logout" destination="XGv-g7-K4L" id="VJC-Mc-KF4"/>
+                        <outlet property="report" destination="dCt-KO-BEg" id="YNo-he-H0Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOf-oZ-tNH" userLabel="First Responder" sceneMemberID="firstResponder"/>

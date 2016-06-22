@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController : UIViewController{
     
     @IBOutlet weak var logout: UIButton!
+    @IBOutlet weak var report: UIButton!
 
     var logon: Logon!
     
@@ -20,6 +21,7 @@ class HomeViewController : UIViewController{
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.report.enabled = false
     }
     
     @IBAction func logoutAction (sender: AnyObject?){
