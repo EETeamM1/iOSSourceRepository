@@ -10,10 +10,11 @@ import Foundation
 
 class NetworkController: ProtocolNetworkController {
     
-    
+    let serverURL: String = "http://172.26.60.21:9000/InventoryManagement/api"
     
     func sendPostRequest(postData: NSString,  urlString:String, completion: (bool:Bool?, object:NSObject?) -> Void) {
 
+        let urlString = serverURL + urlString
         let url:NSURL? = NSURL(string: urlString )!
         let postDataEncoded:NSData = postData.dataUsingEncoding(NSASCIIStringEncoding)!
         let postLength:NSString = String( postDataEncoded.length )
@@ -31,6 +32,7 @@ class NetworkController: ProtocolNetworkController {
     
     func sendGetRequest(urlString:String, completion: (bool:Bool?, object:NSObject?) -> Void) {
         
+        let urlString = serverURL + urlString
         let url:NSURL? = NSURL(string: urlString )!
         let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "GET"

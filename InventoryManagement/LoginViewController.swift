@@ -92,11 +92,9 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
          location = locations.last! as CLLocation
     }
     
-    
     @IBAction func login (sender: AnyObject?){
         disableUI ()
 
-        let URLString = "http://172.26.60.21:9000/InventoryManagement/api/user/login"
         let username = loginTextField.text
         let password = passwordTextField.text
         
@@ -121,7 +119,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
             
         }
         let networkController:ProtocolNetworkController = NetworkController()
-        networkController.sendPostRequest(postData, urlString: URLString, completion: loginCompletionHandler)
+        networkController.sendPostRequest(postData, urlString: "/user/login", completion: loginCompletionHandler)
         
        }
     
@@ -179,7 +177,5 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     func moveScrollViewOnYOffset (yOffset:CGFloat) {
         scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: yOffset), animated: true)
     }
-    
-
     
 }

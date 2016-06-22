@@ -16,7 +16,6 @@ class HomeViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let session = logon.sessionToken
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -24,13 +23,9 @@ class HomeViewController : UIViewController{
     }
     
     @IBAction func logoutAction (sender: AnyObject?){
-        let logoutURL = "http://172.26.60.21:9000/InventoryManagement/api/user/logout"
-        
-        
+     
         let networkController:ProtocolNetworkController = NetworkController()
-//        networkController.sendPostRequest(logon.writeLogout(), urlString: logoutURL, completion: nil)
-        
+        networkController.sendPostRequest(logon.writeLogout(), urlString: "/user/logout", completion: { _ in })
         self.performSegueWithIdentifier("idSegueLogout", sender: self)
-        
     }
 }
