@@ -11,6 +11,6 @@ protocol ProtocolNetworkController {
     
     func sendPostRequest(postData: NSString, urlString:String, completion: (bool:Bool?, object:NSObject?) -> Void)
     
-    func sendGetRequest(urlString:String, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void)
+    func sendGetRequest(urlString:String, completion: (bool:Bool?, object:NSObject?) -> Void)
     
 }

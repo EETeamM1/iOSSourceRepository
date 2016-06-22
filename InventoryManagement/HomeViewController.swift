@@ -23,9 +23,14 @@ class HomeViewController : UIViewController{
         super.viewWillAppear(animated)
     }
     
-    @IBAction func logoutAction (){
+    @IBAction func logoutAction (sender: AnyObject?){
         let logoutURL = "http://172.26.60.21:9000/InventoryManagement/api/user/logout"
-        logon.writeLogout()
+        
+        
+        let networkController:ProtocolNetworkController = NetworkController()
+//        networkController.sendPostRequest(logon.writeLogout(), urlString: logoutURL, completion: nil)
+        
+        self.performSegueWithIdentifier("idSegueLogout", sender: self)
         
     }
 }

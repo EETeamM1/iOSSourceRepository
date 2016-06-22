@@ -69,6 +69,8 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         }
     }
     
+    @IBAction func unwindToHomeViewController(unwindSegue: UIStoryboardSegue){}
+    
     func disableUI (){
         loginTextField.enabled = false
         passwordTextField.enabled = false
@@ -91,7 +93,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     }
     
     
-    @IBAction func login (){
+    @IBAction func login (sender: AnyObject?){
         disableUI ()
 
         let URLString = "http://172.26.60.21:9000/InventoryManagement/api/user/login"
@@ -126,6 +128,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     
     func successCallBack(data:NSData?) {
         logon.parseLogon(data)
+        passwordTextField.text = ""
         self.performSegueWithIdentifier(invHomeSegue, sender: self)
     }
     

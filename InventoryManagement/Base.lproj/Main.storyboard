@@ -110,7 +110,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="login" destination="Z92-Zq-hfr" eventType="touchUpInside" id="xuC-DC-uQt"/>
+                                                    <action selector="login:" destination="Z92-Zq-hfr" eventType="touchUpInside" id="wpq-xN-Pw2"/>
                                                 </connections>
                                             </button>
                                             <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="jRk-z2-Zor">
@@ -605,6 +605,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="jNv-30-SyL"/>
                     <connections>
                         <outlet property="activityIndicator" destination="jRk-z2-Zor" id="JHY-mT-64P"/>
                         <outlet property="errorFiled" destination="8fN-Bg-jyz" id="Krs-yQ-Zrb"/>
@@ -612,7 +613,7 @@
                         <outlet property="loginTextField" destination="dBM-ch-VnR" id="L49-KX-2sH"/>
                         <outlet property="passwordTextField" destination="2aS-4r-228" id="ZeV-2t-2lc"/>
                         <outlet property="scrollView" destination="Tv3-kE-csd" id="3ij-OZ-5TF"/>
-                        <segue destination="tcO-Rf-eJz" kind="presentation" identifier="segueHomeScreen" id="5NY-tz-vby"/>
+                        <segue destination="tcO-Rf-eJz" kind="show" identifier="segueHomeScreen" id="5NY-tz-vby"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MuS-1B-mtT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -664,10 +665,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="logoutAction" destination="tcO-Rf-eJz" eventType="touchUpInside" id="DZW-kx-cfE"/>
-                                    <segue destination="Z92-Zq-hfr" kind="popoverPresentation" popoverAnchorView="XGv-g7-K4L" id="Oh9-cI-oFV">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="logoutAction:" destination="tcO-Rf-eJz" eventType="touchUpInside" id="u7v-9V-nSA"/>
+                                    <segue destination="xDl-mc-7sU" kind="unwind" identifier="idSegueLogout" unwindAction="unwindToHomeViewController:" id="wvC-7G-UpL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -738,12 +737,12 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="Asu-qv-fDm"/>
                     <connections>
                         <outlet property="logout" destination="XGv-g7-K4L" id="VJC-Mc-KF4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOf-oZ-tNH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xDl-mc-7sU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1303.5" y="255"/>
         </scene>
