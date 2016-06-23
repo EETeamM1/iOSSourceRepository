@@ -30,4 +30,8 @@ class HomeViewController : UIViewController{
         networkController.sendPostRequest(logon.writeLogout(), urlString: "/user/logout", completion: { _ in })
         self.performSegueWithIdentifier("idSegueLogout", sender: self)
     }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return false
+    }
 }

@@ -188,4 +188,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         }
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return false
+    }
 }
