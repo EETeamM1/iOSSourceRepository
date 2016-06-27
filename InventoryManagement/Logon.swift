@@ -41,11 +41,11 @@ class Logon{
     func writeLogon (username :NSString?, withPassword password:NSString?, AndWithLocation location :CLLocation ) -> NSString{
 
         let deviceId : NSString = "12345655474255"
-        let osversion : NSString = UIDevice.currentDevice().systemVersion;
-        var string: NSString = NSString(format: "{ \"parameters\": {\"userId\" :\"%@\", \"password\": \"%@\", \"deviceId\": \"%@\", \"osVersion\": \"%@\"", username!, password!, deviceId, osversion)
+        let osversion : NSString = getOSversion()
+        var string: NSString = NSString(format: "{ \"parameters\": {\"userId\": \"%@\", \"password\": \"%@\", \"deviceId\": \"%@\", \"osVersion\": \"%@\"", username!, password!, deviceId, osversion)
 
         if (location.coordinate.longitude != 0 && location.coordinate.latitude != 0 ){
-             string = NSString(format: (string as String) + ", \"latitude\" :\"\(location.coordinate.latitude)\", \"longitude\": \"\(location.coordinate.longitude)\"" )
+             string = NSString(format: (string as String) + ", \"latitude\": \"\(location.coordinate.latitude)\", \"longitude\": \"\(location.coordinate.longitude)\"" )
         }
         string = (string as String) + "}}"
         
@@ -53,7 +53,11 @@ class Logon{
     }
     
     func writeLogout () -> NSString{
-        return NSString(format: "{ \"parameters\": {\"sessionToken\" :\"%@\" }}}", self.sessionToken)
+        return NSString(format: "{ \"parameters\": {\"sessionToken\" :\"%@\" }}", self.sessionToken)
+    }
+    
+    func getOSversion () ->NSString{
+        return UIDevice.currentDevice().systemVersion
     }
 
 }

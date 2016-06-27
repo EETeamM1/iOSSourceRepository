@@ -26,6 +26,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     var isKeyboardOverlap: Bool = false
     var yOffsetDifference: CGFloat!
     var initialScrollViewYOffset: CGFloat!
+    var isOrientationChange: Bool = false
     
     var logon: Logon!
 
@@ -50,13 +51,15 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         
         //Add observer for keyboard
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardDidHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "onOrientationChange", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         initialScrollViewYOffset = scrollView.contentOffset.y
+        self.isOrientationChange = false
     }
     
     // ==================================
@@ -147,8 +150,8 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     }
     
     func keyboardWillShow (notification: NSNotification) {
-        if isKeyboardShown{
-            return;
+        if self.isKeyboardShown{
+            return
         }
         
         let keyboardInfo: NSDictionary = notification.userInfo!
@@ -157,25 +160,30 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         
         //Calculate y-position difference value between bootom of passwordField & top edge of keyboard.
         //This will check keyboard is overlapping on password field or not.
-        yOffsetDifference = (passwordTextField.frame.origin.y + passwordTextField.frame.size.height + 35) - (keyboardFrameBeginRect.origin.y - keyboardFrameBeginRect.height)  ;
-        isKeyboardOverlap = (self.yOffsetDifference>=0.0);
+        self.yOffsetDifference = (self.passwordTextField.frame.origin.y + self.passwordTextField.frame.size.height + 35) - (keyboardFrameBeginRect.origin.y - keyboardFrameBeginRect.height)  ;
+        self.isKeyboardOverlap = (self.yOffsetDifference>=0.0);
     
-        if isKeyboardOverlap {
-            moveScrollViewOnYOffset(yOffsetDifference)
+        if self.isKeyboardOverlap {
+            moveScrollViewOnYOffset(self.yOffsetDifference)
         }
     
-        self.isKeyboardShown = true;
+        self.isKeyboardShown = true
     }
     
     func keyboardWillHide (notification: NSNotification) {
-        if isKeyboardOverlap {
-            moveScrollViewOnYOffset(initialScrollViewYOffset);
+        if self.isKeyboardOverlap {
+            moveScrollViewOnYOffset(self.initialScrollViewYOffset);
         }
+        
         self.isKeyboardShown = false;
     }
     
     func moveScrollViewOnYOffset (yOffset:CGFloat) {
         scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: yOffset), animated: true)
+    }
+    
+    func onOrientationChange (){
+        self.isOrientationChange = true
     }
     
     
