@@ -25,6 +25,12 @@
 		F7E801601D20F50C005A3BE7 /* Logon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70107641D0AA85300C97693 /* Logon.swift */; settings = {ASSET_TAGS = (); }; };
 		F7E801641D2103B7005A3BE7 /* LogonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E801611D20F547005A3BE7 /* LogonTest.swift */; settings = {ASSET_TAGS = (); }; };
 		F7E801661D213C12005A3BE7 /* MockLogon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E801651D213C12005A3BE7 /* MockLogon.swift */; settings = {ASSET_TAGS = (); }; };
+		F7E801681D214C89005A3BE7 /* LoginViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E801671D214C89005A3BE7 /* LoginViewControllerTest.swift */; settings = {ASSET_TAGS = (); }; };
+		F7E801691D214DD1005A3BE7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BCFB7A1CFDB08700CC1318 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F7E8016A1D214EEE005A3BE7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C4A3411D18153F004F985E /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F7E8016B1D214EF5005A3BE7 /* ProtocolNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73910BE1D09B3E200FB319D /* ProtocolNetworkController.swift */; settings = {ASSET_TAGS = (); }; };
+		F7E8016C1D214F16005A3BE7 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73910BC1D09B3CC00FB319D /* NetworkController.swift */; settings = {ASSET_TAGS = (); }; };
+		F7E8016D1D215770005A3BE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F728FD231D01800900F29DA6 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +73,7 @@
 		F7C4A3411D18153F004F985E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F7E801611D20F547005A3BE7 /* LogonTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogonTest.swift; sourceTree = "<group>"; };
 		F7E801651D213C12005A3BE7 /* MockLogon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLogon.swift; sourceTree = "<group>"; };
+		F7E801671D214C89005A3BE7 /* LoginViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +164,7 @@
 				F7E801631D20F6C0005A3BE7 /* JSONParser */,
 				F752E0FC1CF4723D00318084 /* InventoryManagementTests.swift */,
 				F752E0FE1CF4723D00318084 /* Info.plist */,
+				F7E801671D214C89005A3BE7 /* LoginViewControllerTest.swift */,
 			);
 			path = InventoryManagementTests;
 			sourceTree = "<group>";
@@ -303,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7E8016D1D215770005A3BE7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,10 +343,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7E801691D214DD1005A3BE7 /* LoginViewController.swift in Sources */,
 				F752E0FD1CF4723D00318084 /* InventoryManagementTests.swift in Sources */,
+				F7E8016B1D214EF5005A3BE7 /* ProtocolNetworkController.swift in Sources */,
 				F7E801641D2103B7005A3BE7 /* LogonTest.swift in Sources */,
+				F7E801681D214C89005A3BE7 /* LoginViewControllerTest.swift in Sources */,
 				F7E801601D20F50C005A3BE7 /* Logon.swift in Sources */,
+				F7E8016A1D214EEE005A3BE7 /* HomeViewController.swift in Sources */,
 				F7E801661D213C12005A3BE7 /* MockLogon.swift in Sources */,
+				F7E8016C1D214F16005A3BE7 /* NetworkController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

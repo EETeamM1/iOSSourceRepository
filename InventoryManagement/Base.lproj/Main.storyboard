@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
@@ -628,9 +627,9 @@
                         <outlet property="activityIndicator" destination="jRk-z2-Zor" id="JHY-mT-64P"/>
                         <outlet property="errorFiled" destination="8fN-Bg-jyz" id="Krs-yQ-Zrb"/>
                         <outlet property="loginButton" destination="I5K-97-gb1" id="kEm-xp-v7n"/>
-                        <outlet property="loginTextField" destination="dBM-ch-VnR" id="L49-KX-2sH"/>
                         <outlet property="passwordTextField" destination="2aS-4r-228" id="ZeV-2t-2lc"/>
                         <outlet property="scrollView" destination="Tv3-kE-csd" id="3ij-OZ-5TF"/>
+                        <outlet property="usernameTextField" destination="dBM-ch-VnR" id="3DH-6J-Trg"/>
                         <segue destination="tcO-Rf-eJz" kind="show" identifier="segueHomeScreen" id="5NY-tz-vby"/>
                     </connections>
                 </viewController>

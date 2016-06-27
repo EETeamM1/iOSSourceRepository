@@ -10,7 +10,7 @@ import CoreLocation
 import UIKit
 
 class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
-    @IBOutlet weak var loginTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorFiled: UITextView!
@@ -33,9 +33,9 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginTextField.delegate = self
+        usernameTextField.delegate = self
         passwordTextField.delegate = self
-        setTextFieldUI(loginTextField)
+        setTextFieldUI(usernameTextField)
         setTextFieldUI(passwordTextField)
         self.activityIndicator.stopAnimating()
         self.activityIndicator.hidden = true
@@ -75,7 +75,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     @IBAction func unwindToHomeViewController(unwindSegue: UIStoryboardSegue){}
     
     func disableUI (){
-        loginTextField.enabled = false
+        usernameTextField.enabled = false
         passwordTextField.enabled = false
         loginButton.enabled = false
         activityIndicator.hidden = false;
@@ -84,7 +84,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     }
     
     func enableUI (){
-        loginTextField.enabled = true
+        usernameTextField.enabled = true
         passwordTextField.enabled = true
         loginButton.enabled = true
         self.activityIndicator.hidden = true;
@@ -98,7 +98,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     @IBAction func login (sender: AnyObject?){
         disableUI ()
 
-        let username = loginTextField.text
+        let username = usernameTextField.text
         let password = passwordTextField.text
         
         if (username!.characters.count == 0  || password!.characters.count == 0){
