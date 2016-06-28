@@ -108,6 +108,10 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
             return
         }
         
+        doLogon(username!, password: password!)
+    }
+    
+    func doLogon (username: String, password: String ){
         logon = Logon();
         let postData = logon.writeLogon(username, withPassword: password, AndWithLocation: location)
         let loginCompletionHandler: (Bool? , NSObject?) -> Void = { (success, data) in
@@ -123,8 +127,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         }
         let networkController:ProtocolNetworkController = NetworkController()
         networkController.sendPostRequest(postData, urlString: "/user/login", completion: loginCompletionHandler)
-        
-       }
+    }
     
     
     func successCallBack(data:NSData?) {
