@@ -11,6 +11,7 @@ import Foundation
 class NetworkController: ProtocolNetworkController {
     
     let serverURL: String = "http://172.26.60.21:9000/InventoryManagement/api"
+    var session: NSURLSession?
     
     func sendPostRequest(postData: NSString,  urlString:String, completion: (bool:Bool?, object:NSObject?) -> Void) {
         self.sendRequest(postData, urlString: urlString, requestMethod: "POST", completion: completion)
@@ -41,8 +42,8 @@ class NetworkController: ProtocolNetworkController {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         
-        let session = NSURLSession(configuration: urlconfig)
-        session.dataTaskWithRequest(request, completionHandler: getCompletionHandler(completion)).resume()
+        self.session = NSURLSession(configuration: urlconfig)
+        self.session!.dataTaskWithRequest(request, completionHandler: getCompletionHandler(completion)).resume()
     }
     
     func getCompletionHandler(completion:(bool:Bool?, object:NSObject?) ->Void) -> (NSData?, NSURLResponse?, NSError?) -> Void {

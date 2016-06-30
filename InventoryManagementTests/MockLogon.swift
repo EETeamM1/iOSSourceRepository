@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+@testable import InventoryManagement
 class MockLogon: Logon{
     
     override func getOSversion () ->NSString{

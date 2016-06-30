@@ -8,6 +8,7 @@
 
 import XCTest
 import UIKit
+@testable import InventoryManagement
 
 class LoginViewControllerTest: XCTestCase {
 
@@ -16,7 +17,7 @@ class LoginViewControllerTest: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle(forClass: self.dynamicType))
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         loginViewController = storyboard.instantiateViewControllerWithIdentifier("Login") as! LoginViewController
         loginViewController.loadView()
     }
@@ -57,6 +58,11 @@ class LoginViewControllerTest: XCTestCase {
         XCTAssertEqual("Username/Password is required", loginViewController.errorFiled.text, "Error message is incorrect")
         XCTAssertFalse(loginViewController.errorFiled.hidden, "Error field is hidden")
         
+        loginViewController.passwordTextField.text = "impetus"
+        loginViewController.usernameTextField.text = "user1"
+        loginViewController.login(nil)
+        
+        
     }
     
     func testKeyboardWillShow(){
@@ -72,8 +78,35 @@ class LoginViewControllerTest: XCTestCase {
     
     func testKeyboardWillHide(){
         loginViewController.isKeyboardOverlap = true
-        XCTAssertFalse(loginViewController.isKeyboardShown, "Keyboard is shown")
+        loginViewController.isKeyboardShown = true
+        loginViewController.initialScrollViewYOffset = 0.0
         
+        let notification = NSNotification.init(name: UIKeyboardWillHideNotification, object: nil)
+        loginViewController.keyboardWillHide(notification)
+        XCTAssertFalse(loginViewController.isKeyboardShown, "Keyboard is shown")
+    }
+    
+    func testSuccessCallBack(){
+        let logonResponseJSON = "{\"result\": { \"sessionToken\": \"user11465378323910\",\"masterPassword\":\"test123\", \"timeout\": 30 }, \"responseCode\": {\"code\": 200, \"message\": \"Success\" }}"
+        
+        let data = (logonResponseJSON as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+        
+        loginViewController.logon = Logon()
+        loginViewController.successCallBack(data)
+        XCTAssertEqual("user11465378323910", loginViewController.logon.sessionToken, "After Succes login parsing failed")
+        XCTAssertTrue(loginViewController.passwordTextField.text == "","After success call back password field does not get empty")
+        
+    }
+    
+    func testfailureCallBack(){
+        let errorString = "Unable to contact server"
+        loginViewController.failureCallBack(errorString)
+        XCTAssertFalse(loginViewController.errorFiled.hidden, "Error message is hidden on login failure")
+        XCTAssertEqual(errorString, loginViewController.errorFiled.text, "Error message is incorrect")        
+    }
+    
+    func testTextFieldShouldReturn(){
+        XCTAssertTrue(loginViewController.textFieldShouldReturn(loginViewController.usernameTextField), "Text field delegate does not return")
     }
     
     //Helper method

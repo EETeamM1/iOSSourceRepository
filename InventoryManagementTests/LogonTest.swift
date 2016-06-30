@@ -9,6 +9,8 @@
 import XCTest
 import CoreLocation
 
+@testable import InventoryManagement
+
 class LogonTest: XCTestCase {
     
     var logon: MockLogon!
