@@ -9,8 +9,8 @@
 import Foundation
 protocol ProtocolNetworkController {
     
-    func sendPostRequest(postData: NSString, urlString:String, completion: (bool:Bool?, object:NSObject?) -> Void)
+    func sendPostRequest(postData: NSString, urlString:String, completion: (bool:Bool?, object:NSObject?, status:Int?) -> Void)
     
-    func sendGetRequest(urlString:String, completion: (bool:Bool?, object:NSObject?) -> Void)
+    func sendGetRequest(urlString:String, completion: (bool:Bool?, object:NSObject?, status:Int?) -> Void)
     
 }

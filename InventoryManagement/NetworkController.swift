@@ -13,15 +13,15 @@ class NetworkController: ProtocolNetworkController {
     let serverURL: String = "http://172.26.60.21:9000/InventoryManagement/api"
     var session: NSURLSession?
     
-    func sendPostRequest(postData: NSString,  urlString:String, completion: (bool:Bool?, object:NSObject?) -> Void) {
+    func sendPostRequest(postData: NSString,  urlString:String, completion: (bool:Bool?, object:NSObject?, status:Int?) -> Void) {
         self.sendRequest(postData, urlString: urlString, requestMethod: "POST", completion: completion)
     }
     
-    func sendGetRequest(urlString:String, completion: (bool:Bool?, object:NSObject?) -> Void) {
+    func sendGetRequest(urlString:String, completion: (bool:Bool?, object:NSObject?,status:Int?) -> Void) {
         self.sendRequest(nil, urlString: urlString, requestMethod: "GET", completion: completion)
     }
     
-    func sendRequest(postData:NSString?, urlString:String, requestMethod:String, completion: (bool:Bool?, object:NSObject?) -> Void){
+    func sendRequest(postData:NSString?, urlString:String, requestMethod:String, completion: (bool:Bool?, object:NSObject?, status:Int?) -> Void){
         let urlString = serverURL + urlString
         let url:NSURL? = NSURL(string: urlString )!
 
@@ -33,7 +33,8 @@ class NetworkController: ProtocolNetworkController {
         request.HTTPMethod = requestMethod
         
         if requestMethod == "POST"{
-            let postDataEncoded:NSData = postData!.dataUsingEncoding(NSASCIIStringEncoding)!
+            postData!.UTF8String
+            let postDataEncoded:NSData = postData!.dataUsingEncoding(NSUTF8StringEncoding)!
             let postLength:NSString = String( postDataEncoded.length)
             request.HTTPBody = postDataEncoded
             request.setValue(postLength as String, forHTTPHeaderField: "Content-Length")
@@ -46,18 +47,25 @@ class NetworkController: ProtocolNetworkController {
         self.session!.dataTaskWithRequest(request, completionHandler: getCompletionHandler(completion)).resume()
     }
     
-    func getCompletionHandler(completion:(bool:Bool?, object:NSObject?) ->Void) -> (NSData?, NSURLResponse?, NSError?) -> Void {
+    func getCompletionHandler(completion:(bool:Bool?, object:NSObject?, status:Int?) ->Void) -> (NSData?, NSURLResponse?, NSError?) -> Void {
         
         let completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void = { (data, response, error) in
             // this is where the completion handler code goes
             if (response != nil) {
                 let httpResponse:NSHTTPURLResponse = response as! NSHTTPURLResponse
                 if (httpResponse.statusCode >= 200 && httpResponse.statusCode < 300) {
-                    completion(bool:true, object:data)
+                    completion(bool:true, object:data, status: 0)
                 }else {
+                    var errorStatus = 0
                     var errorStr : NSString = "Error on server"
                     if (httpResponse.statusCode == 401) {
                         errorStr = "Invalid user or password"
+                    }
+                    else if ( httpResponse.statusCode == 404) {
+                        //TODO later we have to parse value
+                        errorStr = "IMEI No incorrect/Device not registered"
+                    
+                        errorStatus = 1;
                     }
                     else if ( httpResponse.statusCode == 500) {
                         //TODO later we have to parse value
@@ -66,12 +74,12 @@ class NetworkController: ProtocolNetworkController {
                     else if (httpResponse.statusCode < 200) || (httpResponse.statusCode  > 299) {
                         errorStr = "Error occured on server"
                     }
-                    completion(bool: false, object: errorStr)
+                    completion(bool: false, object: errorStr, status:errorStatus)
                 }
             }
             else{
                 if (error?.domain == NSURLErrorDomain){
-                    completion(bool: false, object: "Unable to contact server")
+                    completion(bool: false, object: "Unable to contact server", status:0)
                 }
             }
         }

@@ -467,12 +467,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nandini Jakhetia (24K8K28PB7)";
 				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = InventoryManagement/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.transility.InventoryManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "462bf9bc-c45e-4d2b-b861-50e591927562";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -481,12 +483,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nandini Jakhetia (24K8K28PB7)";
 				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = InventoryManagement/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.transility.InventoryManagement;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "462bf9bc-c45e-4d2b-b861-50e591927562";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -100,7 +100,7 @@ class LoginViewControllerTest: XCTestCase {
     
     func testfailureCallBack(){
         let errorString = "Unable to contact server"
-        loginViewController.failureCallBack(errorString)
+        loginViewController.failureCallBack(errorString, statusCode: 0)
         XCTAssertFalse(loginViewController.errorFiled.hidden, "Error message is hidden on login failure")
         XCTAssertEqual(errorString, loginViewController.errorFiled.text, "Error message is incorrect")        
     }
