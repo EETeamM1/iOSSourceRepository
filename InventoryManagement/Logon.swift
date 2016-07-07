@@ -38,9 +38,9 @@ class Logon{
         }
     }
     
-    func writeLogon (username :NSString?, withPassword password:NSString?, AndWithLocation location :CLLocation ) -> NSString{
+    func writeLogon (username :NSString?, withPassword password:NSString?, withIMEI imei:String, AndWithLocation location :CLLocation ) -> NSString{
 
-        let deviceId : NSString = "12345655474255"
+        let deviceId : NSString = imei
         let osversion : NSString = getOSversion()
         var string: NSString = NSString(format: "{ \"parameters\": {\"userId\": \"%@\", \"password\": \"%@\", \"deviceId\": \"%@\", \"osVersion\": \"%@\"", username!, password!, deviceId, osversion)
 

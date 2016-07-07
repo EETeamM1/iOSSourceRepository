@@ -9,13 +9,14 @@
 import CoreLocation
 import UIKit
 
-class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
+class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextFieldDelegate, UITextInputTraits {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorFiled: UITextView!
     @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
     @IBOutlet weak var scrollView: UIScrollView!
+ 
     
     let invHomeSegue = "segueHomeScreen"
     
@@ -27,7 +28,8 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     var yOffsetDifference: CGFloat!
     var initialScrollViewYOffset: CGFloat!
     var isOrientationChange: Bool = false
-    
+    let preferences = NSUserDefaults.standardUserDefaults()
+    let IMEIKey = "IMEI";
     var logon: Logon!
 
     override func viewDidLoad() {
@@ -57,6 +59,9 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     }
     
     override func viewDidAppear(animated: Bool) {
+        if preferences.objectForKey(IMEIKey) == nil {
+             showAlertForIMEI ("Enter IMEI No. of this device");
+        }
         super.viewDidAppear(animated)
         initialScrollViewYOffset = scrollView.contentOffset.y
         self.isOrientationChange = false
@@ -76,6 +81,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     
     func disableUI (){
         usernameTextField.enabled = false
+        
         passwordTextField.enabled = false
         loginButton.enabled = false
         activityIndicator.hidden = false;
@@ -94,12 +100,16 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
          location = locations.last! as CLLocation
     }
+
     
     @IBAction func login (sender: AnyObject?){
         disableUI ()
 
         let username = usernameTextField.text
         let password = passwordTextField.text
+      
+        let imeiNo = preferences.objectForKey(IMEIKey) as! String
+        
         
         if (username!.characters.count == 0  || password!.characters.count == 0){
             errorFiled.text = "Username/Password is required"
@@ -109,14 +119,14 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         }
         
         logon = Logon();
-        let postData = logon.writeLogon(username, withPassword: password, AndWithLocation: location)
-        let loginCompletionHandler: (Bool? , NSObject?) -> Void = { (success, data) in
+        let postData = logon.writeLogon(username, withPassword: password,withIMEI: imeiNo, AndWithLocation: location)
+        let loginCompletionHandler: (Bool? , NSObject?, Int?) -> Void = { (success, data, statusCode) in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.enableUI()
                 if (success == true) {
                     self.successCallBack(data as? NSData)
                 } else {
-                    self.failureCallBack(data as? String);
+                    self.failureCallBack(data as? String, statusCode: statusCode!);
                 }
             })
             
@@ -131,7 +141,10 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         self.performSegueWithIdentifier(invHomeSegue, sender: self)
     }
     
-    func failureCallBack(error:String!) {
+    func failureCallBack(error:String!, statusCode:Int) {
+        if (statusCode == 1 ) {
+            self.showAlertForIMEI("Wrong IMEI No. Entered")
+        }
         errorFiled.text = error
         errorFiled.hidden = false
     }
@@ -194,7 +207,31 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         }
     }
     
+    
+    
+    
     override func prefersStatusBarHidden() -> Bool {
         return false
     }
+    
+    func showAlertForIMEI (errorString:String) {
+        let alert = UIAlertController(title: "IMEI no.", message: errorString, preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+           
+           textField.keyboardType = UIKeyboardType.NumberPad
+        })
+      
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            if (alert.textFields?.first?.text?.characters.count <= 10) {
+                alert.message = "Enter atlest 10 digits";
+                self.presentViewController(alert, animated: true, completion: nil)
+            } else {
+                self.preferences.setObject((alert.textFields?.first?.text)!, forKey: self.IMEIKey)
+            }
+            
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
 }
