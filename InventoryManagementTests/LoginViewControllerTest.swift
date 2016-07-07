@@ -54,8 +54,10 @@ class LoginViewControllerTest: XCTestCase {
     
     func testLogin(){
         loginViewController.passwordTextField.text = ""
+        loginViewController.preferences.setObject("12345655474255", forKey: loginViewController.IMEIKey)
         loginViewController.login(nil)
         XCTAssertEqual("Username/Password is required", loginViewController.errorFiled.text, "Error message is incorrect")
+        XCTAssertEqual("12345655474255", loginViewController.preferences.objectForKey(loginViewController.IMEIKey) as! String, "Error message is incorrect")
         XCTAssertFalse(loginViewController.errorFiled.hidden, "Error field is hidden")
         
         loginViewController.passwordTextField.text = "impetus"
@@ -100,7 +102,7 @@ class LoginViewControllerTest: XCTestCase {
     
     func testfailureCallBack(){
         let errorString = "Unable to contact server"
-        loginViewController.failureCallBack(errorString, statusCode: 0)
+        loginViewController.failureCallBack(errorString, statusCode: 400)
         XCTAssertFalse(loginViewController.errorFiled.hidden, "Error message is hidden on login failure")
         XCTAssertEqual(errorString, loginViewController.errorFiled.text, "Error message is incorrect")        
     }

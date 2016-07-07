@@ -142,7 +142,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     }
     
     func failureCallBack(error:String!, statusCode:Int) {
-        if (statusCode == 1 ) {
+        if (statusCode == 404 ) {
             self.showAlertForIMEI("Wrong IMEI No. Entered")
         }
         errorFiled.text = error

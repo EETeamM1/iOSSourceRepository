@@ -41,7 +41,7 @@ class LogonTest: XCTestCase {
     
     func testWriteLogon(){
         let location = CLLocation(latitude: 22.684780, longitude: 75.870673)
-        let logonPostbody = logon.writeLogon("aryan.arora", withPassword: "impetus", AndWithLocation: location)
+        let logonPostbody = logon.writeLogon("aryan.arora", withPassword: "impetus", withIMEI: "12345655474255", AndWithLocation: location)
         let expectedJSON = "{ \"parameters\": {\"userId\": \"aryan.arora\", \"password\": \"impetus\", \"deviceId\": \"12345655474255\", \"osVersion\": \"ios9\", \"latitude\": \"22.68478\", \"longitude\": \"75.870673\"}}"
         
         XCTAssertEqual(expectedJSON, logonPostbody, "Logon post json is invalid")

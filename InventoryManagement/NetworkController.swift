@@ -54,9 +54,8 @@ class NetworkController: ProtocolNetworkController {
             if (response != nil) {
                 let httpResponse:NSHTTPURLResponse = response as! NSHTTPURLResponse
                 if (httpResponse.statusCode >= 200 && httpResponse.statusCode < 300) {
-                    completion(bool:true, object:data, status: 0)
+                    completion(bool:true, object:data, status: httpResponse.statusCode)
                 }else {
-                    var errorStatus = 0
                     var errorStr : NSString = "Error on server"
                     if (httpResponse.statusCode == 401) {
                         errorStr = "Invalid user or password"
@@ -64,8 +63,7 @@ class NetworkController: ProtocolNetworkController {
                     else if ( httpResponse.statusCode == 404) {
                         //TODO later we have to parse value
                         errorStr = "IMEI No incorrect/Device not registered"
-                    
-                        errorStatus = 1;
+
                     }
                     else if ( httpResponse.statusCode == 500) {
                         //TODO later we have to parse value
@@ -74,7 +72,7 @@ class NetworkController: ProtocolNetworkController {
                     else if (httpResponse.statusCode < 200) || (httpResponse.statusCode  > 299) {
                         errorStr = "Error occured on server"
                     }
-                    completion(bool: false, object: errorStr, status:errorStatus)
+                    completion(bool: false, object: errorStr, status:httpResponse.statusCode)
                 }
             }
             else{
