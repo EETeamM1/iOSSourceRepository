@@ -20,6 +20,7 @@
 		F7BCFB771CFD9BE200CC1318 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F7BCFB761CFD9BE200CC1318 /* logo.png */; settings = {ASSET_TAGS = (); }; };
 		F7BCFB7B1CFDB08700CC1318 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BCFB7A1CFDB08700CC1318 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F7C4A3421D18153F004F985E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C4A3411D18153F004F985E /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F7E6DFBC1D2557C00015B14F /* HomeViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E6DFBB1D2557C00015B14F /* HomeViewControllerTest.swift */; settings = {ASSET_TAGS = (); }; };
 		F7E801641D2103B7005A3BE7 /* LogonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E801611D20F547005A3BE7 /* LogonTest.swift */; settings = {ASSET_TAGS = (); }; };
 		F7E801661D213C12005A3BE7 /* MockLogon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E801651D213C12005A3BE7 /* MockLogon.swift */; settings = {ASSET_TAGS = (); }; };
 		F7E801681D214C89005A3BE7 /* LoginViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E801671D214C89005A3BE7 /* LoginViewControllerTest.swift */; settings = {ASSET_TAGS = (); }; };
@@ -62,6 +63,7 @@
 		F7BCFB761CFD9BE200CC1318 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resources/logo.png; sourceTree = "<group>"; };
 		F7BCFB7A1CFDB08700CC1318 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F7C4A3411D18153F004F985E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F7E6DFBB1D2557C00015B14F /* HomeViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTest.swift; sourceTree = "<group>"; };
 		F7E801611D20F547005A3BE7 /* LogonTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogonTest.swift; sourceTree = "<group>"; };
 		F7E801651D213C12005A3BE7 /* MockLogon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLogon.swift; sourceTree = "<group>"; };
 		F7E801671D214C89005A3BE7 /* LoginViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTest.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				F7E801631D20F6C0005A3BE7 /* JSONParser */,
 				F752E0FE1CF4723D00318084 /* Info.plist */,
 				F7E801671D214C89005A3BE7 /* LoginViewControllerTest.swift */,
+				F7E6DFBB1D2557C00015B14F /* HomeViewControllerTest.swift */,
 			);
 			path = InventoryManagementTests;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				F7E801641D2103B7005A3BE7 /* LogonTest.swift in Sources */,
 				F7E801681D214C89005A3BE7 /* LoginViewControllerTest.swift in Sources */,
 				F7E801661D213C12005A3BE7 /* MockLogon.swift in Sources */,
+				F7E6DFBC1D2557C00015B14F /* HomeViewControllerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
