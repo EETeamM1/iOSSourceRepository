@@ -1,4 +1,4 @@
-//
+    //
 //  LoginViewController.swift
 //  InventoryManagement
 //
@@ -31,6 +31,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     let preferences = NSUserDefaults.standardUserDefaults()
     let IMEIKey = "IMEI";
     var logon: Logon!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,10 +63,13 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         if preferences.objectForKey(IMEIKey) == nil {
              showAlertForIMEI ("Enter IMEI No. of this device");
         }
+        checkForAlertDisplay()
         super.viewDidAppear(animated)
         initialScrollViewYOffset = scrollView.contentOffset.y
         self.isOrientationChange = false
     }
+    
+   
     
     // ==================================
     // prepareForSegue
@@ -96,6 +100,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         self.activityIndicator.hidden = true;
         self.activityIndicator.stopAnimating()
     }
+    
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
          location = locations.last! as CLLocation
@@ -214,6 +219,12 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         return false
     }
     
+    func checkForAlertDisplay() {
+        if preferences.objectForKey(IMEIKey) == nil {
+            showAlertForIMEI ("Enter IMEI No. of this device");
+        }
+    }
+    
     func showAlertForIMEI (errorString:String) {
         let alert = UIAlertController(title: "IMEI no.", message: errorString, preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
@@ -231,7 +242,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
             
         }))
         
-        self.presentViewController(alert, animated: true, completion: nil)
+        presentViewController(alert, animated: true, completion: nil)
     }
     
 }
