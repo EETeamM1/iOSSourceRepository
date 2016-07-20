@@ -15,16 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let DEVICE_TOKEN_KEY = "deviceToken"
     let DEVICE_TYPE_KEY = "deviceType"
-
-    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-         NSLog("Did fail to register for remote notifications with error %@", error);
-    }
-    
-    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        let deviceTokenStr = convertDeviceTokenToString(deviceToken)
-        NSUserDefaults.standardUserDefaults().setObject(deviceTokenStr, forKey: DEVICE_TOKEN_KEY)
-        
-    }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let controllerId = "Login";
@@ -64,16 +54,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        NSLog("Did fail to register for remote notifications with error %@", error);
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let deviceTokenStr = convertDeviceTokenToString(deviceToken)
+        NSUserDefaults.standardUserDefaults().setObject(deviceTokenStr, forKey: DEVICE_TOKEN_KEY)
+        
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        //TODO here we will handle a logic to show alert
+        print("Recived: \(userInfo)")
+        //Parsing userinfo:
+        var temp : NSDictionary = userInfo
+        if let info = userInfo["aps"] as? Dictionary<String, AnyObject>
+        {
+            let alertMsg = info["alert"] as! String
+            var alert: UIAlertView!
+            alert = UIAlertView(title: "", message: alertMsg, delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
+        
+    }
+
     private func convertDeviceTokenToString(deviceToken:NSData) -> String {
         //  Convert binary Device Token to a String (and remove the <,> and white space charaters).
-        var deviceTokenStr = deviceToken.description.stringByReplacingOccurrencesOfString(">", withString: "")
-        deviceTokenStr = deviceTokenStr.stringByReplacingOccurrencesOfString("<", withString: "")
-        deviceTokenStr = deviceTokenStr.stringByReplacingOccurrencesOfString(" ", withString: "")
+        let validToken = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
+       return validToken.stringByReplacingOccurrencesOfString(" ", withString: "")
         
-        // Our API returns token in all uppercase, regardless how it was originally sent.
-        // To make the two consistent, I am uppercasing the token string here.
-        deviceTokenStr = deviceTokenStr.uppercaseString
-        return deviceTokenStr
+//        var deviceTokenStr = deviceToken.description.stringByReplacingOccurrencesOfString(">", withString: "")
+//        deviceTokenStr = deviceTokenStr.stringByReplacingOccurrencesOfString("<", withString: "")
+//        deviceTokenStr = deviceTokenStr.stringByReplacingOccurrencesOfString(" ", withString: "")
+//        
+//        // Our API returns token in all uppercase, regardless how it was originally sent.
+//        // To make the two consistent, I am uppercasing the token string here.
+//        deviceTokenStr = deviceTokenStr.uppercaseString
+       
     }
 
     
