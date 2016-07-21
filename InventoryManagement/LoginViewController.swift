@@ -69,8 +69,6 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         self.isOrientationChange = false
     }
     
-   
-    
     // ==================================
     // prepareForSegue
     // ==================================

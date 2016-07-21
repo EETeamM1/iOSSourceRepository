@@ -67,14 +67,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         //TODO here we will handle a logic to show alert
         print("Recived: \(userInfo)")
+        
+        
         //Parsing userinfo:
         var temp : NSDictionary = userInfo
         if let info = userInfo["aps"] as? Dictionary<String, AnyObject>
         {
             let alertMsg = info["alert"] as! String
-            var alert: UIAlertView!
-            alert = UIAlertView(title: "", message: alertMsg, delegate: nil, cancelButtonTitle: "OK")
-            alert.show()
+            let alert = UIAlertController(title: "", message: alertMsg, preferredStyle: .Alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+    
+            }))
+            
+            self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
         }
         
     }
