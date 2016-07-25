@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let initViewController: UIViewController = storyboard.instantiateViewControllerWithIdentifier(controllerId) as UIViewController
         self.window?.rootViewController = initViewController
 
-        let notificationTypes: UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]
+        let notificationTypes: UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Sound]
         let pushNotificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
         
         application.registerUserNotificationSettings(pushNotificationSettings)
@@ -68,9 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //TODO here we will handle a logic to show alert
         print("Recived: \(userInfo)")
         
-        
         //Parsing userinfo:
-        var temp : NSDictionary = userInfo
         if let info = userInfo["aps"] as? Dictionary<String, AnyObject>
         {
             let alertMsg = info["alert"] as! String
@@ -85,19 +83,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
 
+
     private func convertDeviceTokenToString(deviceToken:NSData) -> String {
         //  Convert binary Device Token to a String (and remove the <,> and white space charaters).
         let validToken = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
        return validToken.stringByReplacingOccurrencesOfString(" ", withString: "")
         
-//        var deviceTokenStr = deviceToken.description.stringByReplacingOccurrencesOfString(">", withString: "")
-//        deviceTokenStr = deviceTokenStr.stringByReplacingOccurrencesOfString("<", withString: "")
-//        deviceTokenStr = deviceTokenStr.stringByReplacingOccurrencesOfString(" ", withString: "")
-//        
-//        // Our API returns token in all uppercase, regardless how it was originally sent.
-//        // To make the two consistent, I am uppercasing the token string here.
-//        deviceTokenStr = deviceTokenStr.uppercaseString
-       
     }
 
     
