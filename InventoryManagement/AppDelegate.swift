@@ -65,9 +65,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-        //TODO here we will handle a logic to show alert
-        print("Recived: \(userInfo)")
-        
+    
+        let rootVC = UIApplication.sharedApplication().keyWindow?.rootViewController?.presentedViewController
         //Parsing userinfo:
         if let info = userInfo["aps"] as? Dictionary<String, AnyObject>
         {
@@ -75,23 +74,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let alert = UIAlertController(title: "", message: alertMsg, preferredStyle: .Alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-    
+                //handle action on "ok" button
+                if NSUserDefaults.standardUserDefaults().objectForKey(Logon.sessionTokenKey)?.length > 0{
+                    let networkController:ProtocolNetworkController = NetworkController()
+                    let logon = Logon()
+                    networkController.sendPostRequest(logon.writeLogout(), urlString: "/user/logout", completion: { _ in })
+                    self.window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+                }
             }))
-            
-            self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+           
+            rootVC?.presentViewController(alert, animated: true, completion: nil)
         }
-        
     }
 
 
-    private func convertDeviceTokenToString(deviceToken:NSData) -> String {
+     func convertDeviceTokenToString(deviceToken:NSData) -> String {
         //  Convert binary Device Token to a String (and remove the <,> and white space charaters).
         let validToken = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
        return validToken.stringByReplacingOccurrencesOfString(" ", withString: "")
-        
     }
-
-    
 
 
 }

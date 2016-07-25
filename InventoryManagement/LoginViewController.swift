@@ -140,6 +140,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     
     func successCallBack(data:NSData?) {
         logon.parseLogon(data)
+        NSUserDefaults.standardUserDefaults().setObject(logon.sessionToken, forKey: Logon.sessionTokenKey)
         passwordTextField.text = ""
         self.performSegueWithIdentifier(invHomeSegue, sender: self)
     }
