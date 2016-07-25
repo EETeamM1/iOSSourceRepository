@@ -29,7 +29,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     var initialScrollViewYOffset: CGFloat!
     var isOrientationChange: Bool = false
     let preferences = NSUserDefaults.standardUserDefaults()
-    let IMEIKey = "IMEI";
+    let serialKey = "Serial";
     var logon: Logon!
     
 
@@ -60,8 +60,8 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     }
     
     override func viewDidAppear(animated: Bool) {
-        if preferences.objectForKey(IMEIKey) == nil {
-             showAlertForIMEI ("Enter IMEI No. of this device");
+        if preferences.objectForKey(serialKey) == nil {
+             showAlertForIMEI ("Enter Serial No. of this device");
         }
         checkForAlertDisplay()
         super.viewDidAppear(animated)
@@ -111,7 +111,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         let username = usernameTextField.text
         let password = passwordTextField.text
       
-        let imeiNo = preferences.objectForKey(IMEIKey) as! String
+        let serialNo = preferences.objectForKey(serialKey) as! String
         
         
         if (username!.characters.count == 0  || password!.characters.count == 0){
@@ -122,7 +122,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         }
         
         logon = Logon();
-        let postData = logon.writeLogon(username, withPassword: password,withIMEI: imeiNo, AndWithLocation: location)
+        let postData = logon.writeLogon(username, withPassword: password,withSerial: serialNo, AndWithLocation: location)
         let loginCompletionHandler: (Bool? , NSObject?, Int?) -> Void = { (success, data, statusCode) in
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.enableUI()
@@ -215,24 +215,20 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     }
     
     func checkForAlertDisplay() {
-        if preferences.objectForKey(IMEIKey) == nil {
-            showAlertForIMEI ("Enter IMEI No. of this device");
+        if preferences.objectForKey(serialKey) == nil {
+            showAlertForIMEI ("Enter Serial No. of this device");
         }
     }
     
     func showAlertForIMEI (errorString:String) {
         let alert = UIAlertController(title: "IMEI no.", message: errorString, preferredStyle: .Alert)
-        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
-           
-           textField.keyboardType = UIKeyboardType.NumberPad
-        })
-      
+         
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
             if (alert.textFields?.first?.text?.characters.count <= 10) {
                 alert.message = "Enter atlest 10 digits";
                 self.presentViewController(alert, animated: true, completion: nil)
             } else {
-                self.preferences.setObject((alert.textFields?.first?.text)!, forKey: self.IMEIKey)
+                self.preferences.setObject((alert.textFields?.first?.text)!, forKey: self.serialKey)
             }
             
         }))
