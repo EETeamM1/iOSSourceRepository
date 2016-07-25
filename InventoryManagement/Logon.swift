@@ -12,6 +12,8 @@ import UIKit
 
 class Logon{
     
+    static let sessionTokenKey = "sessionTokenKey"
+    
     var sessionToken : String = ""
     var timeout : Int = 30
     var masterPassword : String = ""
