@@ -55,10 +55,10 @@ class LoginViewControllerTest: XCTestCase {
     
     func testLogin(){
         loginViewController.passwordTextField.text = ""
-        loginViewController.preferences.setObject("12345655474255", forKey: loginViewController.IMEIKey)
+        loginViewController.preferences.setObject("12345655474255", forKey: loginViewController.serialKey)
         loginViewController.login(nil)
         XCTAssertEqual("Username/Password is required", loginViewController.errorFiled.text, "Error message is incorrect")
-        XCTAssertEqual("12345655474255", loginViewController.preferences.objectForKey(loginViewController.IMEIKey) as? String, "Error message is incorrect")
+        XCTAssertEqual("12345655474255", loginViewController.preferences.objectForKey(loginViewController.serialKey) as? String, "Error message is incorrect")
         XCTAssertFalse(loginViewController.errorFiled.hidden, "Error field is hidden")
         
         loginViewController.passwordTextField.text = "impetus"
@@ -113,7 +113,7 @@ class LoginViewControllerTest: XCTestCase {
     }
     
     func testAlertForUniqueIDEntry(){
-        loginViewController.preferences.removeObjectForKey(loginViewController.IMEIKey)
+        loginViewController.preferences.removeObjectForKey(loginViewController.serialKey)
         loginViewController.checkForAlertDisplay()
         
         XCTAssertTrue(loginViewController.presentedViewController is UIAlertController, "Alert not appeared")

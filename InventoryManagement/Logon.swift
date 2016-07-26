@@ -36,7 +36,7 @@ class Logon{
             
             
         }catch let error as NSError {
-            print(error)
+             NSLog("Did fail to parse logon with error %@", error);
         }
     }
     
