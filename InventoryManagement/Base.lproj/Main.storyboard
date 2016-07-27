@@ -767,6 +767,78 @@
             </objects>
             <point key="canvasLocation" x="1303.5" y="255"/>
         </scene>
+        <!--Report View-->
+        <scene sceneID="HT7-YP-Ztp">
+            <objects>
+                <viewController storyboardIdentifier="Home" title="Report View" id="z3k-H2-1LZ" customClass="HomeViewController" customModule="InventoryManagement" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rw4-e6-vB1"/>
+                        <viewControllerLayoutGuide type="bottom" id="5IY-S2-KMw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uR6-N4-ab6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Welcome to Inventory Managment" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0x-g8-NsL">
+                                <rect key="frame" x="25" y="48" width="550" height="60"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="lXA-Jc-6Xq"/>
+                                </constraints>
+                                <color key="textColor" red="0.64793983499999996" green="0.0" blue="0.3642070241" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pnp-7F-Y7f">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="116" width="360" height="684"/>
+                                </variation>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c0x-g8-NsL" firstAttribute="top" secondItem="rw4-e6-vB1" secondAttribute="bottom" constant="105" id="9FV-4x-Tep"/>
+                            <constraint firstAttribute="trailing" secondItem="c0x-g8-NsL" secondAttribute="trailing" constant="25" id="HA6-ap-RD5"/>
+                            <constraint firstItem="c0x-g8-NsL" firstAttribute="centerX" secondItem="uR6-N4-ab6" secondAttribute="centerX" id="Hh3-IR-a3a"/>
+                            <constraint firstItem="c0x-g8-NsL" firstAttribute="leading" secondItem="uR6-N4-ab6" secondAttribute="leading" constant="25" id="QGl-aK-V1j"/>
+                            <constraint firstItem="c0x-g8-NsL" firstAttribute="top" secondItem="uR6-N4-ab6" secondAttribute="top" constant="48" id="kLv-08-iB7"/>
+                            <constraint firstItem="c0x-g8-NsL" firstAttribute="top" secondItem="rw4-e6-vB1" secondAttribute="bottom" constant="28" id="wCX-91-nmX"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Pnp-7F-Y7f"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="wCX-91-nmX"/>
+                                <exclude reference="9FV-4x-Tep"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="wCX-91-nmX"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Pnp-7F-Y7f"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="wCX-91-nmX"/>
+                                <exclude reference="9FV-4x-Tep"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yXu-Ut-fvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2025" y="270"/>
+        </scene>
     </scenes>
     <resources>
         <image name="logo.png" width="250" height="51"/>
