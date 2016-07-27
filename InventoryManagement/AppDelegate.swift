@@ -13,8 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    let DEVICE_TOKEN_KEY = "deviceToken"
-    let DEVICE_TYPE_KEY = "deviceType"
+    static let device_token_key = "deviceToken"
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let controllerId = "Login";
@@ -60,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let deviceTokenStr = convertDeviceTokenToString(deviceToken)
-        NSUserDefaults.standardUserDefaults().setObject(deviceTokenStr, forKey: DEVICE_TOKEN_KEY)
+        NSUserDefaults.standardUserDefaults().setObject(deviceTokenStr, forKey: AppDelegate.device_token_key)
         
     }
     

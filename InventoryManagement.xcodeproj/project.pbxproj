@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		F70107651D0AA85300C97693 /* Logon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70107641D0AA85300C97693 /* Logon.swift */; settings = {ASSET_TAGS = (); }; };
+		F7036A8D1D48813C00A8672A /* AppDelegateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7036A8C1D48813C00A8672A /* AppDelegateTest.swift */; settings = {ASSET_TAGS = (); }; };
+		F715EB531D4757FA008C3D31 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715EB521D4757FA008C3D31 /* Report.swift */; settings = {ASSET_TAGS = (); }; };
+		F715EB551D4761FE008C3D31 /* DeviceReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715EB541D4761FE008C3D31 /* DeviceReport.swift */; settings = {ASSET_TAGS = (); }; };
+		F715EB571D476B0B008C3D31 /* ReportTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715EB561D476B0B008C3D31 /* ReportTest.swift */; settings = {ASSET_TAGS = (); }; };
 		F728FD221D017D0B00F29DA6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F752E0F31CF4723C00318084 /* Info.plist */; settings = {ASSET_TAGS = (); }; };
 		F728FD251D01800900F29DA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F728FD231D01800900F29DA6 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		F73910BD1D09B3CC00FB319D /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73910BC1D09B3CC00FB319D /* NetworkController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -46,6 +50,10 @@
 
 /* Begin PBXFileReference section */
 		F70107641D0AA85300C97693 /* Logon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logon.swift; sourceTree = "<group>"; };
+		F7036A8C1D48813C00A8672A /* AppDelegateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateTest.swift; sourceTree = "<group>"; };
+		F715EB521D4757FA008C3D31 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		F715EB541D4761FE008C3D31 /* DeviceReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceReport.swift; sourceTree = "<group>"; };
+		F715EB561D476B0B008C3D31 /* ReportTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTest.swift; sourceTree = "<group>"; };
 		F728FD241D01800900F29DA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F73910BC1D09B3CC00FB319D /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		F73910BE1D09B3E200FB319D /* ProtocolNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolNetworkController.swift; sourceTree = "<group>"; };
@@ -99,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				F70107641D0AA85300C97693 /* Logon.swift */,
+				F715EB521D4757FA008C3D31 /* Report.swift */,
+				F715EB541D4761FE008C3D31 /* DeviceReport.swift */,
 			);
 			name = JSONParser;
 			sourceTree = "<group>";
@@ -157,6 +167,7 @@
 				F752E0FE1CF4723D00318084 /* Info.plist */,
 				F7E801671D214C89005A3BE7 /* LoginViewControllerTest.swift */,
 				F7E6DFBB1D2557C00015B14F /* HomeViewControllerTest.swift */,
+				F7036A8C1D48813C00A8672A /* AppDelegateTest.swift */,
 			);
 			path = InventoryManagementTests;
 			sourceTree = "<group>";
@@ -183,6 +194,7 @@
 			children = (
 				F7E801611D20F547005A3BE7 /* LogonTest.swift */,
 				F7E801651D213C12005A3BE7 /* MockLogon.swift */,
+				F715EB561D476B0B008C3D31 /* ReportTest.swift */,
 			);
 			name = JSONParser;
 			sourceTree = "<group>";
@@ -331,7 +343,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F73910BD1D09B3CC00FB319D /* NetworkController.swift in Sources */,
+				F715EB551D4761FE008C3D31 /* DeviceReport.swift in Sources */,
 				F70107651D0AA85300C97693 /* Logon.swift in Sources */,
+				F715EB531D4757FA008C3D31 /* Report.swift in Sources */,
 				F7BCFB7B1CFDB08700CC1318 /* LoginViewController.swift in Sources */,
 				F73910BF1D09B3E200FB319D /* ProtocolNetworkController.swift in Sources */,
 				F7C4A3421D18153F004F985E /* HomeViewController.swift in Sources */,
@@ -345,6 +359,8 @@
 			files = (
 				F7E801641D2103B7005A3BE7 /* LogonTest.swift in Sources */,
 				F7E801681D214C89005A3BE7 /* LoginViewControllerTest.swift in Sources */,
+				F7036A8D1D48813C00A8672A /* AppDelegateTest.swift in Sources */,
+				F715EB571D476B0B008C3D31 /* ReportTest.swift in Sources */,
 				F7E801661D213C12005A3BE7 /* MockLogon.swift in Sources */,
 				F7E6DFBC1D2557C00015B14F /* HomeViewControllerTest.swift in Sources */,
 			);

@@ -1,0 +1,45 @@
+//
+//  ReportTest.swift
+//  InventoryManagement
+//
+//  Created by Himanshu Bapna on 26/07/16.
+//  Copyright © 2016 Impetus. All rights reserved.
+//
+
+import XCTest
+
+@testable import InventoryManagement
+
+class ReportTest: XCTestCase {
+    
+    var report: Report!
+
+    override func setUp() {
+        super.setUp()
+        report = Report()
+    }
+    
+    override func tearDown() {
+        report = nil
+        super.tearDown()
+    }
+
+    func testParseDeviceReport() {
+        let reportJSON = "{\"result\": {\"timeout\": 0,\"deviceReportDtoList\": [{\"loginTIme\": \"7:00 AM\",\"logOutTime\": \"7:30 AM\",\"userId\": \"User0\",       \"userName\": \"Ankit\"}, {\"loginTIme\": \"4:15 PM\",\"logOutTime\": \"4:30PM\",\"userId\": \"user1\",\"userName\": \"Surjeet\"},{\"loginTIme\": \"4:30PM\",\"userId\": \"user2\", \"userName\": \"Raghu\"}]},\"responseCode\": {\"code\": 200}}"
+        
+        let data = (reportJSON as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+
+        report.parseDeviceReport(data)
+        XCTAssertEqual(3 ,report.deviceReportList.count, "report list count is incorrect")
+        
+        let reportArray: NSArray = report.deviceReportList
+        
+        let deviceReport :DeviceReport = reportArray[0] as! DeviceReport
+        XCTAssertEqual("7:00 AM", deviceReport.inTime, "Device in time is incorrect")
+        XCTAssertEqual("7:30 AM", deviceReport.outTime, "Device out time is incorrect")
+        XCTAssertEqual("User0", deviceReport.userId, "User id is incorrect")
+        XCTAssertEqual("Ankit", deviceReport.userName, "User name is incorrect")
+        
+    }
+
+}
