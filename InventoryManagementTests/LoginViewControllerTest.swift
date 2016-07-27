@@ -118,16 +118,14 @@ class LoginViewControllerTest: XCTestCase {
         
         XCTAssertTrue(loginViewController.presentedViewController is UIAlertController, "Alert not appeared")
         if let alert = loginViewController.presentedViewController as? UIAlertController{
-            XCTAssertEqual(alert.title, "IMEI no.")
-            XCTAssertEqual(alert.message, "Enter IMEI No. of this device")
+            XCTAssertEqual(alert.title, "Serial no.")
+            XCTAssertEqual(alert.message, "Enter Serial No. of this device")
             alert
         }
         else {
             XCTFail("UIAlertController failed to be presented")
 
         }
-        
-        
     }
     
     //Helper method

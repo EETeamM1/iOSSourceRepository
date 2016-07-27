@@ -147,7 +147,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     
     func failureCallBack(error:String!, statusCode:Int) {
         if (statusCode == 404 ) {
-            self.showAlertForIMEI("Wrong IMEI No. Entered")
+            self.showAlertForIMEI("Wrong Serial No. Entered")
         }
         errorFiled.text = error
         errorFiled.hidden = false
@@ -222,7 +222,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     }
     
     func showAlertForIMEI (errorString:String) {
-        let alert = UIAlertController(title: "IMEI no.", message: errorString, preferredStyle: .Alert)
+        let alert = UIAlertController(title: "Serial no.", message: errorString, preferredStyle: .Alert)
          
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
             if (alert.textFields?.first?.text?.characters.count <= 10) {
