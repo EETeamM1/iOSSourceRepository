@@ -44,7 +44,8 @@ class Logon{
 
         let deviceId : NSString = serial
         let osversion : NSString = getOSversion()
-        var string: NSString = NSString(format: "{ \"parameters\": {\"userId\": \"%@\", \"password\": \"%@\", \"deviceId\": \"%@\", \"osVersion\": \"%@\"", username!, password!, deviceId, osversion)
+        let deviceToken : NSString = NSUserDefaults.standardUserDefaults().objectForKey(AppDelegate.device_token_key) as! NSString
+        var string: NSString = NSString(format: "{ \"parameters\": {\"userId\": \"%@\", \"password\": \"%@\", \"deviceId\": \"%@\", \"osVersion\": \"%@\", \"deviceToken\": \"%@\"", username!, password!, deviceId, osversion, deviceToken)
 
         if (location.coordinate.longitude != 0 && location.coordinate.latitude != 0 ){
              string = NSString(format: (string as String) + ", \"latitude\": \"\(location.coordinate.latitude)\", \"longitude\": \"\(location.coordinate.longitude)\"" )

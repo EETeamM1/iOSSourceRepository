@@ -10,7 +10,7 @@ import Foundation
 
 class NetworkController: ProtocolNetworkController {
     
-    let serverURL: String = "http://172.26.60.21:9000/InventoryManagement/api"
+    let serverURL: String = "http://172.26.60.25:8080/InventoryManagement/api"
     var session: NSURLSession?
     
     func sendPostRequest(postData: NSString,  urlString:String, completion: (bool:Bool?, object:NSObject?, status:Int?) -> Void) {
