@@ -223,7 +223,10 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     
     func showAlertForIMEI (errorString:String) {
         let alert = UIAlertController(title: "Serial no.", message: errorString, preferredStyle: .Alert)
-         
+        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            
+        })
+
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
             if (alert.textFields?.first?.text?.characters.count <= 10) {
                 alert.message = "Enter atlest 10 digits";

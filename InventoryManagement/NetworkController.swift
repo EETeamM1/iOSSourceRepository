@@ -33,7 +33,6 @@ class NetworkController: ProtocolNetworkController {
         request.HTTPMethod = requestMethod
         
         if requestMethod == "POST"{
-            postData!.UTF8String
             let postDataEncoded:NSData = postData!.dataUsingEncoding(NSUTF8StringEncoding)!
             let postLength:NSString = String( postDataEncoded.length)
             request.HTTPBody = postDataEncoded
