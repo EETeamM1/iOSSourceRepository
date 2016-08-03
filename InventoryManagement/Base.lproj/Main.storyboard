@@ -631,7 +631,6 @@
                         <outlet property="scrollView" destination="Tv3-kE-csd" id="3ij-OZ-5TF"/>
                         <outlet property="usernameTextField" destination="dBM-ch-VnR" id="3DH-6J-Trg"/>
                         <segue destination="tcO-Rf-eJz" kind="show" identifier="segueHomeScreen" id="5NY-tz-vby"/>
-                        <segue destination="dv0-RJ-Kf4" kind="show" identifier="idSegueRport" id="hGl-d7-tLd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MuS-1B-mtT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -964,7 +963,7 @@
                                 </prototypes>
                                 <sections/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="120" width="400" height="660"/>
+                                    <rect key="frame" x="0.0" y="120" width="400" height="680"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="dv0-RJ-Kf4" id="XzC-gd-tek"/>
@@ -1004,7 +1003,6 @@
         <image name="logo.png" width="750" height="153"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hGl-d7-tLd"/>
         <segue reference="QkR-Lv-FFU"/>
     </inferredMetricsTieBreakers>
 </document>

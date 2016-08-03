@@ -10,8 +10,8 @@ import Foundation
 
 class DeviceReport{
     
-    var inTime : NSNumber?
-    var outTime : NSNumber?
+    var inTime : String? = ""
+    var outTime : String? = ""
     var userId : String? = ""
     var userName : String? = ""
 }

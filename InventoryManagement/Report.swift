@@ -25,10 +25,10 @@ class Report{
                     let deviceReport = DeviceReport()
                 
                     
-                    deviceReport.inTime = reportObj["loginTIme"] as? NSNumber
-                    deviceReport.outTime = reportObj["logOutTime"] as? NSNumber
+                    deviceReport.inTime = reportObj["loginTIme"] as? String
+                    deviceReport.outTime = reportObj["logOutTime"] as? String
                     if(deviceReport.outTime == nil){
-                        deviceReport.outTime = 0
+                        deviceReport.outTime = ""
                     }
                     deviceReport.userId = reportObj["userId"] as? String
                     deviceReport.userName = reportObj["userName"] as? String
