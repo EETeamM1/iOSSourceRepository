@@ -16,7 +16,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     @IBOutlet weak var errorFiled: UITextView!
     @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
     @IBOutlet weak var scrollView: UIScrollView!
-    
+ 
     
     let invHomeSegue = "segueHomeScreen"
     
@@ -151,8 +151,6 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         }
         errorFiled.text = error
         errorFiled.hidden = false
-//        self.performSegueWithIdentifier("idSegueRport", sender: self)
-        
     }
     
     func setTextFieldUI (textField : UITextField){
@@ -226,8 +224,9 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     func showAlertForIMEI (errorString:String) {
         let alert = UIAlertController(title: "Serial no.", message: errorString, preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
-//            textField.text = "Some default text."
+            
         })
+
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
             if (alert.textFields?.first?.text?.characters.count <= 10) {
                 alert.message = "Enter atlest 10 digits";
