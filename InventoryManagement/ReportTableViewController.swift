@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ReportTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
      var deviceReportList: NSMutableArray!
