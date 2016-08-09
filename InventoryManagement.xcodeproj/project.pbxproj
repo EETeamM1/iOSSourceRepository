@@ -22,7 +22,7 @@
 		F752E0EF1CF4723C00318084 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F752E0EE1CF4723C00318084 /* Assets.xcassets */; };
 		F752E0F21CF4723C00318084 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F752E0F01CF4723C00318084 /* LaunchScreen.storyboard */; };
 		F752E1081CF4723D00318084 /* InventoryManagementUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F752E1071CF4723D00318084 /* InventoryManagementUITests.swift */; };
-		F765CFB21D48C2D200CB87D0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F765CFB11D48C2D200CB87D0 /* TableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F765CFB21D48C2D200CB87D0 /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F765CFB11D48C2D200CB87D0 /* ReportTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F7A0AB5E1D4A41C100B9B11E /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A0AB5D1D4A41C100B9B11E /* ReportCell.swift */; settings = {ASSET_TAGS = (); }; };
 		F7BCFB771CFD9BE200CC1318 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F7BCFB761CFD9BE200CC1318 /* logo.png */; settings = {ASSET_TAGS = (); }; };
 		F7BCFB7B1CFDB08700CC1318 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BCFB7A1CFDB08700CC1318 /* LoginViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -72,7 +72,7 @@
 		F752E1031CF4723D00318084 /* InventoryManagementUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InventoryManagementUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F752E1071CF4723D00318084 /* InventoryManagementUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryManagementUITests.swift; sourceTree = "<group>"; };
 		F752E1091CF4723D00318084 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F765CFB11D48C2D200CB87D0 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		F765CFB11D48C2D200CB87D0 /* ReportTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
 		F7A0AB5D1D4A41C100B9B11E /* ReportCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
 		F7BCFB761CFD9BE200CC1318 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Resources/logo.png; sourceTree = "<group>"; };
 		F7BCFB7A1CFDB08700CC1318 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 				F752E0F31CF4723C00318084 /* Info.plist */,
 				F7BCFB7A1CFDB08700CC1318 /* LoginViewController.swift */,
 				F7C4A3411D18153F004F985E /* HomeViewController.swift */,
-				F765CFB11D48C2D200CB87D0 /* TableViewController.swift */,
+				F765CFB11D48C2D200CB87D0 /* ReportTableViewController.swift */,
 				F7A0AB5D1D4A41C100B9B11E /* ReportCell.swift */,
 			);
 			path = InventoryManagement;
@@ -356,7 +356,7 @@
 				F70107651D0AA85300C97693 /* Logon.swift in Sources */,
 				F715EB531D4757FA008C3D31 /* Report.swift in Sources */,
 				F7BCFB7B1CFDB08700CC1318 /* LoginViewController.swift in Sources */,
-				F765CFB21D48C2D200CB87D0 /* TableViewController.swift in Sources */,
+				F765CFB21D48C2D200CB87D0 /* ReportTableViewController.swift in Sources */,
 				F73910BF1D09B3E200FB319D /* ProtocolNetworkController.swift in Sources */,
 				F7C4A3421D18153F004F985E /* HomeViewController.swift in Sources */,
 				F752E0E81CF4723C00318084 /* AppDelegate.swift in Sources */,
@@ -512,15 +512,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nandini Jakhetia (24K8K28PB7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nandini Jakhetia (24K8K28PB7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = InventoryManagement/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.allservices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "462bf9bc-c45e-4d2b-b861-50e591927562";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -529,7 +529,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nandini Jakhetia (24K8K28PB7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = NO;
 				INFOPLIST_FILE = InventoryManagement/Info.plist;
@@ -537,7 +537,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.allservices;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "462bf9bc-c45e-4d2b-b861-50e591927562";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

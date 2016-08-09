@@ -65,7 +65,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
     
-        let rootVC = UIApplication.sharedApplication().keyWindow?.rootViewController?.presentedViewController
+        var rootVC = UIApplication.sharedApplication().keyWindow?.rootViewController?.presentedViewController
+        
+        while ((rootVC?.presentedViewController) != nil)
+        {
+            rootVC = rootVC?.presentedViewController;
+        }
         //Parsing userinfo:
         if let info = userInfo["aps"] as? Dictionary<String, AnyObject>
         {
@@ -82,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }))
            
-            rootVC?.presentViewController(alert, animated: true, completion: nil)
+            rootVC!.presentViewController(alert, animated: true, completion: nil)
         }
     }
 

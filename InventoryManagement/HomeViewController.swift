@@ -73,7 +73,7 @@ class HomeViewController : UIViewController{
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "idSegueReport") {
-        let svc = segue.destinationViewController as! TableViewController
+        let svc = segue.destinationViewController as! ReportTableViewController
         svc.deviceReportList = deviceRepotList
         }
     }
