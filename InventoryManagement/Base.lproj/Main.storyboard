@@ -794,10 +794,10 @@
             </objects>
             <point key="canvasLocation" x="1303.5" y="255"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Report View-->
         <scene sceneID="YBy-7n-5hO">
             <objects>
-                <viewController id="dv0-RJ-Kf4" customClass="TableViewController" customModule="InventoryManagement" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Report" title="Report View" id="dv0-RJ-Kf4" customClass="TableViewController" customModule="InventoryManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xNW-fX-X2t"/>
                         <viewControllerLayoutGuide type="bottom" id="pOp-cv-MMB"/>
@@ -990,6 +990,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="tableView" destination="b69-4Z-dhU" id="jg8-xt-45T"/>
                         <outlet property="uppperView" destination="jmr-YC-R8h" id="Sg4-Z9-i4H"/>
                         <segue destination="tcO-Rf-eJz" kind="show" identifier="idSegueHome" id="QkR-Lv-FFU"/>
                     </connections>

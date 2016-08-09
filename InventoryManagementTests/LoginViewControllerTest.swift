@@ -65,7 +65,6 @@ class LoginViewControllerTest: XCTestCase {
         loginViewController.usernameTextField.text = "user1"
         loginViewController.login(nil)
         
-        
     }
     
     func testKeyboardWillShow(){
