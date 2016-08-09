@@ -37,6 +37,9 @@ class LogonTest: XCTestCase {
         
         XCTAssertEqual(200 ,logon.code, "Logon response code value is incorrect")
         XCTAssertEqual("Success" ,logon.message, "Logon response message value is incorrect")
+        
+        
+        
     }
     
     func testWriteLogon(){

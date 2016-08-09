@@ -259,17 +259,10 @@
             </objects>
             <point key="canvasLocation" x="1303.5" y="255"/>
         </scene>
-<<<<<<< HEAD
-        <!--Report View-->
-        <scene sceneID="YBy-7n-5hO">
-            <objects>
-                <viewController storyboardIdentifier="Report" title="Report View" id="dv0-RJ-Kf4" customClass="TableViewController" customModule="InventoryManagement" customModuleProvider="target" sceneMemberID="viewController">
-=======
         <!--Report Table View Controller-->
         <scene sceneID="YBy-7n-5hO">
             <objects>
-                <viewController id="dv0-RJ-Kf4" customClass="ReportTableViewController" customModule="InventoryManagement" customModuleProvider="target" sceneMemberID="viewController">
->>>>>>> b1108c1b9eda44f9412656ea509b8af387462da6
+                <viewController storyboardIdentifier="Report" id="dv0-RJ-Kf4" customClass="ReportTableViewController" customModule="InventoryManagement" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xNW-fX-X2t"/>
                         <viewControllerLayoutGuide type="bottom" id="pOp-cv-MMB"/>
@@ -784,7 +777,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="tableView" destination="b69-4Z-dhU" id="jg8-xt-45T"/>
+                        <outlet property="tableView" destination="b69-4Z-dhU" id="sUZ-64-rHP"/>
                         <outlet property="uppperView" destination="jmr-YC-R8h" id="Sg4-Z9-i4H"/>
                         <segue destination="tcO-Rf-eJz" kind="presentation" identifier="idSegueHome" id="QkR-Lv-FFU"/>
                     </connections>

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F70107651D0AA85300C97693 /* Logon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70107641D0AA85300C97693 /* Logon.swift */; settings = {ASSET_TAGS = (); }; };
-		F701641A1D58AE4A002C5F08 /* TableViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70164191D58AE4A002C5F08 /* TableViewControllerTest.swift */; settings = {ASSET_TAGS = (); }; };
+		F701641C1D59E3B3002C5F08 /* ReportTableViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F701641B1D59E3B3002C5F08 /* ReportTableViewControllerTest.swift */; settings = {ASSET_TAGS = (); }; };
 		F7036A8D1D48813C00A8672A /* AppDelegateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7036A8C1D48813C00A8672A /* AppDelegateTest.swift */; settings = {ASSET_TAGS = (); }; };
 		F715EB531D4757FA008C3D31 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715EB521D4757FA008C3D31 /* Report.swift */; settings = {ASSET_TAGS = (); }; };
 		F715EB551D4761FE008C3D31 /* DeviceReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F715EB541D4761FE008C3D31 /* DeviceReport.swift */; settings = {ASSET_TAGS = (); }; };
@@ -53,7 +53,7 @@
 
 /* Begin PBXFileReference section */
 		F70107641D0AA85300C97693 /* Logon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logon.swift; sourceTree = "<group>"; };
-		F70164191D58AE4A002C5F08 /* TableViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewControllerTest.swift; sourceTree = "<group>"; };
+		F701641B1D59E3B3002C5F08 /* ReportTableViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTableViewControllerTest.swift; sourceTree = "<group>"; };
 		F7036A8C1D48813C00A8672A /* AppDelegateTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateTest.swift; sourceTree = "<group>"; };
 		F715EB521D4757FA008C3D31 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		F715EB541D4761FE008C3D31 /* DeviceReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceReport.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 				F7E801671D214C89005A3BE7 /* LoginViewControllerTest.swift */,
 				F7E6DFBB1D2557C00015B14F /* HomeViewControllerTest.swift */,
 				F7036A8C1D48813C00A8672A /* AppDelegateTest.swift */,
-				F70164191D58AE4A002C5F08 /* TableViewControllerTest.swift */,
+				F701641B1D59E3B3002C5F08 /* ReportTableViewControllerTest.swift */,
 			);
 			path = InventoryManagementTests;
 			sourceTree = "<group>";
@@ -370,9 +370,9 @@
 			files = (
 				F7E801641D2103B7005A3BE7 /* LogonTest.swift in Sources */,
 				F7E801681D214C89005A3BE7 /* LoginViewControllerTest.swift in Sources */,
+				F701641C1D59E3B3002C5F08 /* ReportTableViewControllerTest.swift in Sources */,
 				F7036A8D1D48813C00A8672A /* AppDelegateTest.swift in Sources */,
 				F715EB571D476B0B008C3D31 /* ReportTest.swift in Sources */,
-				F701641A1D58AE4A002C5F08 /* TableViewControllerTest.swift in Sources */,
 				F7E801661D213C12005A3BE7 /* MockLogon.swift in Sources */,
 				F7E6DFBC1D2557C00015B14F /* HomeViewControllerTest.swift in Sources */,
 			);
