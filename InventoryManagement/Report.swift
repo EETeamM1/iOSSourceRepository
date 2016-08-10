@@ -25,9 +25,15 @@ class Report{
                     let deviceReport = DeviceReport()
                 
                     
-                    deviceReport.inTime = reportObj["loginTIme"] as? String
-                    deviceReport.outTime = reportObj["logOutTime"] as? String
-                    if(deviceReport.outTime == nil){
+                    let inTimeLong = reportObj["loginTIme"] as? NSNumber
+                    
+                    
+                    deviceReport.inTime = convertLongToString(inTimeLong!)
+                    if (reportObj["logOutTime"] != nil) {
+                    let outTimeLong = reportObj["logOutTime"] as? NSNumber
+                        deviceReport.outTime = convertLongToString(outTimeLong!)
+                    } else {
+                        
                         deviceReport.outTime = ""
                     }
                     deviceReport.userId = reportObj["userId"] as? String
@@ -42,5 +48,19 @@ class Report{
     }
         return deviceReportList
 }
+    
+    
+    
+    func  convertLongToString(time:NSNumber) -> String {
+        let inTimeMilliSec = NSTimeInterval(time)/1000
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "h:mm a"
+        formatter.AMSymbol = "AM"
+        formatter.PMSymbol = "PM"
+        let date = NSDate(timeIntervalSince1970: inTimeMilliSec)
+        return formatter.stringFromDate(date);
+        
+        
+    }
     
 }

@@ -30,8 +30,50 @@ class HomeViewControllerTest: XCTestCase {
 
     func testExample() {
         homeViewController.viewDidLoad()
+        
+        homeViewController.reportAction(nil)
+        
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
+    
+    func testSuccessCallBack(){
+        let reportJSON = "{\"result\": {\"timeout\": 0,\"deviceReportDtoList\": [{\"loginTIme\": 1470619824000,\"logOutTime\": 1470621624000,\"userId\": \"User0\",       \"userName\": \"Raja\"}]},\"responseCode\": {\"code\": 200}}"
+        
+        let data = (reportJSON as NSString).dataUsingEncoding(NSUTF8StringEncoding)
+        
+  
+        homeViewController.successCallBack(data)
+        
+        XCTAssertTrue(homeViewController.deviceRepotList.count == 1,"Sucess call back of report actin failed")
+        
+    }
+    
+    func testDisableUI() {
+        homeViewController.disableUI()
+        XCTAssertFalse(homeViewController.report.enabled, "Report button is not disable")
+        XCTAssertFalse(homeViewController.logout.enabled, "Logout button is not disable")
+     
+        XCTAssertTrue(homeViewController.activityIndicator.isAnimating(), "Activity Indicator is not animating")
+
+    }
+    
+    func testEnableUI() {
+        homeViewController.enableUI()
+        XCTAssertTrue(homeViewController.report.enabled, "Report button is not enable")
+        XCTAssertTrue(homeViewController.logout.enabled, "Logout button is not enable")
+        
+        XCTAssertFalse(homeViewController.activityIndicator.isAnimating(), "Activity Indicator not stopped animating")
+       
+    }
+
+    
+    func testprefersStatusBarHidden() {
+        
+     
+        XCTAssertFalse(homeViewController.prefersStatusBarHidden(), "Prefrence Staus bar is true")
+        
+    }
+    
 }

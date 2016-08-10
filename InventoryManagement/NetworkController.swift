@@ -61,7 +61,7 @@ class NetworkController: ProtocolNetworkController {
                     }
                     else if ( httpResponse.statusCode == 404) {
                         //TODO later we have to parse value
-                        errorStr = "IMEI No incorrect/Device not registered"
+                        errorStr = "Serial No incorrect/Device not registered"
 
                     }
                     else if ( httpResponse.statusCode == 500) {

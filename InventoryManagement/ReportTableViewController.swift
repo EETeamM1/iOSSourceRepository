@@ -13,7 +13,9 @@ class ReportTableViewController: UIViewController, UITableViewDelegate, UITableV
     
      var deviceReportList: NSMutableArray!
     @IBOutlet weak var uppperView: UIView!
+   
     
+    @IBOutlet var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
