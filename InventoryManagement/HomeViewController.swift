@@ -30,13 +30,13 @@ class HomeViewController : UIViewController{
     @IBAction func logoutAction (sender: AnyObject?){
      
         let networkController:ProtocolNetworkController = NetworkController()
+        let logon = Logon()
+        logon.sessionToken = NSUserDefaults.standardUserDefaults().objectForKey(Logon.sessionTokenKey) as! String
         networkController.sendPostRequest(logon.writeLogout(), urlString: "/user/logout", completion: { _ in })
         self.performSegueWithIdentifier("idSegueLogout", sender: self)
     }
     
-   
-    
-    
+  
     @IBAction func reportAction (sender: AnyObject?){
         disableUI()
         let networkController:ProtocolNetworkController = NetworkController()
@@ -68,12 +68,9 @@ class HomeViewController : UIViewController{
         }
         self.performSegueWithIdentifier("idSegueReport", sender: self)
         
-           }
-    
-    func failureCallBack(error:String!, statusCode:Int) {
-       
-        
     }
+    
+    func failureCallBack(error:String!, statusCode:Int) {}
 
     func handleError() {
         let alertController = UIAlertController(title: "Error", message:
@@ -86,8 +83,8 @@ class HomeViewController : UIViewController{
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "idSegueReport") {
-        let svc = segue.destinationViewController as! ReportTableViewController
-        svc.deviceReportList = deviceRepotList
+            let svc = segue.destinationViewController as! ReportTableViewController
+            svc.deviceReportList = deviceRepotList
         }
     }
     func disableUI (){

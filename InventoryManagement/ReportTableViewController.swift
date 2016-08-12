@@ -45,9 +45,7 @@ class ReportTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         cell.inLabel?.text = reportData.inTime
         cell.nameLabel?.text = reportData.userName
-        cell.ouLabel?.text = reportData.outTime
-        
-//            cell.textLabel?.text = "raja"
+        cell.ouLabel?.text = reportData.outTime;
      
         return cell
     }
@@ -55,5 +53,14 @@ class ReportTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func homeButtonPressed(sender: AnyObject?) {
      self.performSegueWithIdentifier("idSegueHome", sender: self)
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone{
+            return [.Portrait, .PortraitUpsideDown]
+        }
+        else {
+            return .All
+        }
     }
 }
