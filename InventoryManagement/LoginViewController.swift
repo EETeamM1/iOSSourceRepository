@@ -8,7 +8,9 @@
 
 import CoreLocation
 import UIKit
-
+/**
+    Controller class to perform all logon related action.
+*/
 class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextFieldDelegate, UITextInputTraits {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -32,7 +34,7 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     let serialKey = "Serial";
     var logon: Logon!
     
-
+    //here logon view will be load
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,6 +61,8 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "onOrientationChange", name: UIDeviceOrientationDidChangeNotification, object: nil)
     }
     
+    //Notifies the view controller that its view was added to a view hierarchy.
+    //If true, the view was added to the window using an animation
     override func viewDidAppear(animated: Bool) {
         if preferences.objectForKey(serialKey) == nil {
              showAlertForIMEI ("Enter Serial No. of this device");
@@ -81,6 +85,10 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     
     @IBAction func unwindToHomeViewController(unwindSegue: UIStoryboardSegue){}
     
+    
+    /**
+        Method to disable UI component of login screen.
+    */
     func disableUI (){
         usernameTextField.enabled = false
         
@@ -91,6 +99,9 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         errorFiled.hidden = true
     }
     
+   /**
+        Method to enable UI component of login screen
+    */
     func enableUI (){
         usernameTextField.enabled = true
         passwordTextField.enabled = true
@@ -99,12 +110,13 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         self.activityIndicator.stopAnimating()
     }
     
-    
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
          location = locations.last! as CLLocation
     }
 
-    
+    /**
+        Mentod to perform login action.
+    */
     @IBAction func login (sender: AnyObject?){
         disableUI ()
 

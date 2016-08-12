@@ -9,7 +9,10 @@
 import Foundation
 import CoreLocation
 import UIKit
-
+/**
+    Created class to store Logon response value 
+    and create post body for logon and logout request
+*/
 class Logon{
     
     static let sessionTokenKey = "sessionTokenKey"
@@ -21,6 +24,10 @@ class Logon{
     var code : Int!
     var message : String = ""
     
+    /**
+        Method to parse Logon JSON.
+        - parameter  data: object contain logon json which will be parse.
+    */
     func parseLogon (data: NSData?) throws {
         
         do{
@@ -41,7 +48,14 @@ class Logon{
         }
     }
     
-    func writeLogon (username :NSString?, withPassword password:NSString?, withSerial serial:String, AndWithLocation location :CLLocation ) -> NSString{
+    /**
+        Method to write postbody for logon request
+        - parameter  username: username value enter on logon screen
+        - parameter password: password value enter during logon screen
+        - parameter serial: device unique id
+        - parameter location:device location object, it contain location latitude and longitude value
+    */
+    func writeLogon (username :NSString?, withPassword password:NSString?, withSerial serial:NSString, AndWithLocation location :CLLocation ) -> NSString{
         
         let deviceId : NSString = serial
         let osversion : NSString = getOSversion()
@@ -59,10 +73,16 @@ class Logon{
         return NSString(string: string)
     }
     
+    /**
+        Method to create postbody for logout request.
+    */
     func writeLogout () -> NSString{
         return NSString(format: "{ \"parameters\": {\"sessionToken\" :\"%@\" }}", self.sessionToken)
     }
     
+    /**
+        Method to fetch device version.
+    */
     func getOSversion () ->NSString{
         return UIDevice.currentDevice().systemVersion
     }

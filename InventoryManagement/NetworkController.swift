@@ -7,20 +7,46 @@
 //
 
 import Foundation
-
+/**
+    Class handle request & response network call 
+    and callback success and failure to respective controller.
+*/
 class NetworkController: ProtocolNetworkController {
     
     let serverURL: String = "http://172.26.60.25:8080/InventoryManagement/api"
     var session: NSURLSession?
     
+    /**
+        Method to send post request.
+        - parameter postData: NSString request postbody
+        - parameter urlString: String postbody
+        - parameter completionHandler: The completion handler to call when the load request is complete. This handler is executed on the delegate queue.
+            Unless you have provided a custom delegate, this parameter must not be nil, because there is no other way to retrieve the response data.
+    */
     func sendPostRequest(postData: NSString,  urlString:String, completion: (bool:Bool?, object:NSObject?, status:Int?) -> Void) {
         self.sendRequest(postData, urlString: urlString, requestMethod: "POST", completion: completion)
     }
+    
+    /**
+    Method to send get request.
+   
+    - parameter urlString: String postbody
+    - parameter completionHandler: The completion handler to call when the load request is complete. This handler is executed on the delegate queue.
+    Unless you have provided a custom delegate, this parameter must not be nil, because there is no other way to retrieve the response data.
+    */
     
     func sendGetRequest(urlString:String, completion: (bool:Bool?, object:NSObject?,status:Int?) -> Void) {
         self.sendRequest(nil, urlString: urlString, requestMethod: "GET", completion: completion)
     }
     
+    /**
+        Method to send post/get request on the require basis.
+    
+        - parameter postData: NSString request postbody if send post request
+        - parameter urlString: String postbody
+        - parameter completionHandler: The completion handler to call when the load request is complete. This handler is executed on the delegate queue.
+            Unless you have provided a custom delegate, this parameter must not be nil, because there is no other way to retrieve the response data.
+    */
     func sendRequest(postData:NSString?, urlString:String, requestMethod:String, completion: (bool:Bool?, object:NSObject?, status:Int?) -> Void){
         let urlString = serverURL + urlString
         let url:NSURL? = NSURL(string: urlString )!
@@ -45,6 +71,15 @@ class NetworkController: ProtocolNetworkController {
         self.session = NSURLSession(configuration: urlconfig)
         self.session!.dataTaskWithRequest(request, completionHandler: getCompletionHandler(completion)).resume()
     }
+    
+    /**
+        Method to handle callback block, which will recieve response from server and send appropriate message/data to respective controller
+          
+        - parameter completionHandler: The completion handler to call when the load request is complete. This handler is executed on the delegate queue.
+            Unless you have provided a custom delegate, this parameter must not be nil, because there is no other way to retrieve the response data.
+    
+        - returns: The new session data tas
+    */
     
     func getCompletionHandler(completion:(bool:Bool?, object:NSObject?, status:Int?) ->Void) -> (NSData?, NSURLResponse?, NSError?) -> Void {
         

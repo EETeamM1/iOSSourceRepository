@@ -62,7 +62,7 @@
 		F73910BC1D09B3CC00FB319D /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		F73910BE1D09B3E200FB319D /* ProtocolNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolNetworkController.swift; sourceTree = "<group>"; };
 		F73910C01D0AB1FF00FB319D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		F752E0E41CF4723B00318084 /* InventoryManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InventoryManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F752E0E41CF4723B00318084 /* Invento.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Invento.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F752E0E71CF4723C00318084 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F752E0EE1CF4723C00318084 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F752E0F11CF4723C00318084 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		F752E0E51CF4723B00318084 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F752E0E41CF4723B00318084 /* InventoryManagement.app */,
+				F752E0E41CF4723B00318084 /* Invento.app */,
 				F752E0F81CF4723D00318084 /* InventoryManagementTests.xctest */,
 				F752E1031CF4723D00318084 /* InventoryManagementUITests.xctest */,
 			);
@@ -211,9 +211,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F752E0E31CF4723B00318084 /* InventoryManagement */ = {
+		F752E0E31CF4723B00318084 /* Invento */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F752E10C1CF4723D00318084 /* Build configuration list for PBXNativeTarget "InventoryManagement" */;
+			buildConfigurationList = F752E10C1CF4723D00318084 /* Build configuration list for PBXNativeTarget "Invento" */;
 			buildPhases = (
 				F752E0E01CF4723B00318084 /* Sources */,
 				F752E0E11CF4723B00318084 /* Frameworks */,
@@ -223,9 +223,9 @@
 			);
 			dependencies = (
 			);
-			name = InventoryManagement;
+			name = Invento;
 			productName = InventoryManagement;
-			productReference = F752E0E41CF4723B00318084 /* InventoryManagement.app */;
+			productReference = F752E0E41CF4723B00318084 /* Invento.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F752E0F71CF4723D00318084 /* InventoryManagementTests */ = {
@@ -309,7 +309,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F752E0E31CF4723B00318084 /* InventoryManagement */,
+				F752E0E31CF4723B00318084 /* Invento */,
 				F752E0F71CF4723D00318084 /* InventoryManagementTests */,
 				F752E1021CF4723D00318084 /* InventoryManagementUITests */,
 			);
@@ -391,12 +391,12 @@
 /* Begin PBXTargetDependency section */
 		F752E0FA1CF4723D00318084 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F752E0E31CF4723B00318084 /* InventoryManagement */;
+			target = F752E0E31CF4723B00318084 /* Invento */;
 			targetProxy = F752E0F91CF4723D00318084 /* PBXContainerItemProxy */;
 		};
 		F752E1051CF4723D00318084 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F752E0E31CF4723B00318084 /* InventoryManagement */;
+			target = F752E0E31CF4723B00318084 /* Invento */;
 			targetProxy = F752E1041CF4723D00318084 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -462,6 +462,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "";
 				PROVISIONING_PROFILE = "462bf9bc-c45e-4d2b-b861-50e591927562";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -502,6 +503,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "";
 				PROVISIONING_PROFILE = "462bf9bc-c45e-4d2b-b861-50e591927562";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -519,7 +521,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.allservices;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Invento;
 				PROVISIONING_PROFILE = "e18dae19-a254-4cfb-b430-115cc7a7eda1";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -536,7 +538,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.impetus.allservices;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Invento;
 				PROVISIONING_PROFILE = "e18dae19-a254-4cfb-b430-115cc7a7eda1";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -610,7 +612,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F752E10C1CF4723D00318084 /* Build configuration list for PBXNativeTarget "InventoryManagement" */ = {
+		F752E10C1CF4723D00318084 /* Build configuration list for PBXNativeTarget "Invento" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F752E10D1CF4723D00318084 /* Debug */,
