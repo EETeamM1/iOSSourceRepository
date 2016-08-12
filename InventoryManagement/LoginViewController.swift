@@ -139,10 +139,15 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
     }
     
     func successCallBack(data:NSData?) {
-        logon.parseLogon(data)
+        do {
+        try logon.parseLogon(data)
         NSUserDefaults.standardUserDefaults().setObject(logon.sessionToken, forKey: Logon.sessionTokenKey)
         passwordTextField.text = ""
         self.performSegueWithIdentifier(invHomeSegue, sender: self)
+        } catch
+        {
+          handleError()  
+        }
     }
     
     func failureCallBack(error:String!, statusCode:Int) {
@@ -151,6 +156,16 @@ class LoginViewController : UIViewController, CLLocationManagerDelegate, UITextF
         }
         errorFiled.text = error
         errorFiled.hidden = false
+    }
+    
+    
+    func handleError() {
+        let alertController = UIAlertController(title: "Error", message:
+            "Server Error, Please try again", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
     func setTextFieldUI (textField : UITextField){

@@ -12,7 +12,7 @@ class Report{
     
     var deviceReportList: NSMutableArray!
     
-    func parseDeviceReport (data: NSData?) -> NSMutableArray{
+    func parseDeviceReport (data: NSData?)  throws -> NSMutableArray {
         deviceReportList = NSMutableArray() 
         do{
             let jsonObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSDictionary
@@ -45,6 +45,7 @@ class Report{
             
         }catch let error as NSError {
              NSLog("Did fail to parse device report with error %@", error);
+            throw error
     }
         return deviceReportList
 }

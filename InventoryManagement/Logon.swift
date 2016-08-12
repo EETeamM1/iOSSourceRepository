@@ -21,7 +21,7 @@ class Logon{
     var code : Int!
     var message : String = ""
     
-    func parseLogon (data: NSData?){
+    func parseLogon (data: NSData?) throws {
         
         do{
             let jsonObject = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSDictionary
@@ -37,11 +37,12 @@ class Logon{
             
         }catch let error as NSError {
              NSLog("Did fail to parse logon with error %@", error);
+            throw error
         }
     }
     
     func writeLogon (username :NSString?, withPassword password:NSString?, withSerial serial:String, AndWithLocation location :CLLocation ) -> NSString{
-
+        
         let deviceId : NSString = serial
         let osversion : NSString = getOSversion()
         var deviceToken : NSString = ""

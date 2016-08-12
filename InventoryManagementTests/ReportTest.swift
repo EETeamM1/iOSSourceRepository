@@ -29,7 +29,13 @@ class ReportTest: XCTestCase {
         
         let data = (reportJSON as NSString).dataUsingEncoding(NSUTF8StringEncoding)
 
-        report.parseDeviceReport(data)
+        do {
+            try report.parseDeviceReport(data)
+        } catch {
+            NSLog("Did fail to parse device report with error");
+        }
+            
+            
         XCTAssertEqual(2 ,report.deviceReportList.count, "report list count is incorrect")
         
         let reportArray: NSArray = report.deviceReportList

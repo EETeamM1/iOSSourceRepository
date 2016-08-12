@@ -61,7 +61,12 @@ class HomeViewController : UIViewController{
     
     func successCallBack(data:NSData?) {
         reportParser = Report()
-         deviceRepotList = reportParser.parseDeviceReport(data)
+        do {
+
+         try deviceRepotList = reportParser.parseDeviceReport(data)
+        } catch  {
+            handleError()
+        }
         self.performSegueWithIdentifier("idSegueReport", sender: self)
         
            }
@@ -71,6 +76,15 @@ class HomeViewController : UIViewController{
         
     }
 
+    func handleError() {
+        let alertController = UIAlertController(title: "Error", message:
+            "Server Error, Please try again", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "idSegueReport") {
         let svc = segue.destinationViewController as! ReportTableViewController
