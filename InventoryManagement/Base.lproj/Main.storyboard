@@ -414,7 +414,9 @@
                                             <constraint firstAttribute="width" constant="344" id="Ryi-q3-JeM">
                                                 <variation key="widthClass=regular" constant="464"/>
                                             </constraint>
-                                            <constraint firstAttribute="width" constant="224" id="qZ8-uu-ZO2"/>
+                                            <constraint firstAttribute="width" constant="224" id="qZ8-uu-ZO2">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="200"/>
+                                            </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="0.41858300566673279" green="0.0" blue="0.19156603515148163" alpha="1" colorSpace="calibratedRGB"/>
@@ -576,7 +578,9 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGe-58-Dkt">
                                                     <rect key="frame" x="8" y="9" width="344" height="24"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="224" id="Lbr-6q-K1K"/>
+                                                        <constraint firstAttribute="width" constant="224" id="Lbr-6q-K1K">
+                                                            <variation key="heightClass=regular-widthClass=compact" constant="200"/>
+                                                        </constraint>
                                                         <constraint firstAttribute="height" constant="24" id="TGs-fq-H1o"/>
                                                         <constraint firstAttribute="width" constant="344" id="fov-gE-Zol">
                                                             <variation key="widthClass=regular" constant="464"/>
