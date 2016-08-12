@@ -30,7 +30,6 @@ class HomeViewController : UIViewController{
     @IBAction func logoutAction (sender: AnyObject?){
      
         let networkController:ProtocolNetworkController = NetworkController()
-        logon = Logon()
         networkController.sendPostRequest(logon.writeLogout(), urlString: "/user/logout", completion: { _ in })
         self.performSegueWithIdentifier("idSegueLogout", sender: self)
     }
@@ -109,5 +108,14 @@ class HomeViewController : UIViewController{
     
     override func prefersStatusBarHidden() -> Bool {
         return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone{
+            return [.Portrait, .PortraitUpsideDown]
+        }
+        else {
+            return .All
+        }
     }
 }

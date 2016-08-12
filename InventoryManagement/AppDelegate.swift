@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  InventoryManagement
 //
-//  Created by impadmin on 24/05/16.
+//  Created by Himanshu Bapna on 24/05/16.
 //  Copyright © 2016 Impetus. All rights reserved.
 //
 
@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     static let device_token_key = "deviceToken"
     
+    /*
+    * Application is ready to launch and here we initiate LoginViewController as 1st view controller of app
+    */
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let controllerId = "Login";
         
@@ -53,16 +56,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    /**
+    * Method called when application failed to register Remote Notification
+    */
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         NSLog("Did fail to register for remote notifications with error %@", error);
     }
     
+    /**
+    * Menthod called application successfully registered with Apple Push Notification service (APNs).
+    */
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let deviceTokenStr = convertDeviceTokenToString(deviceToken)
         NSUserDefaults.standardUserDefaults().setObject(deviceTokenStr, forKey: AppDelegate.device_token_key)
         
     }
     
+    /**
+    * Called when your app has received a remote notification.The app object that received the remote notification.
+    * And display Alert dialog or notification on the basis of app setting, for navigate back to login screen
+    */
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
     
         var rootVC = UIApplication.sharedApplication().keyWindow?.rootViewController?.presentedViewController
@@ -82,6 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if NSUserDefaults.standardUserDefaults().objectForKey(Logon.sessionTokenKey)?.length > 0{
                     let networkController:ProtocolNetworkController = NetworkController()
                     let logon = Logon()
+                    logon.sessionToken = NSUserDefaults.standardUserDefaults().objectForKey(Logon.sessionTokenKey) as! String
                     networkController.sendPostRequest(logon.writeLogout(), urlString: "/user/logout", completion: { _ in })
                     self.window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
                 }
@@ -91,7 +105,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-
+    /**
+    * @discussion Method to convert device token received from APNS server into valid string without any special character or space
+    * @param deviceToken as NSData which is convert to string
+    * @return conversion value
+    */
      func convertDeviceTokenToString(deviceToken:NSData) -> String {
         //  Convert binary Device Token to a String (and remove the <,> and white space charaters).
         let validToken = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
