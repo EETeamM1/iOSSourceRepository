@@ -95,6 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if NSUserDefaults.standardUserDefaults().objectForKey(Logon.sessionTokenKey)?.length > 0{
                     let networkController:ProtocolNetworkController = NetworkController()
                     let logon = Logon()
+                    logon.sessionToken = NSUserDefaults.standardUserDefaults().objectForKey(Logon.sessionTokenKey) as! String
                     networkController.sendPostRequest(logon.writeLogout(), urlString: "/user/logout", completion: { _ in })
                     self.window?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
                 }
